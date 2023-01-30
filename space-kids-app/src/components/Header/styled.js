@@ -56,13 +56,9 @@ export const OptionsList = styled.ul`
     color: #1f1235;
   }
 
-  li a {
-    text-decoration: none;
-    color: #1f1235;
-  }
-
-  li a:hover {
+  li:hover {
     color: #ff6e6c;
+    cursor: pointer;
   }
 `;
 
@@ -87,5 +83,6 @@ export const Icon = styled.div`
 
   :hover {
     color: #ff6e6c;
+    cursor: pointer;
   }
 `;

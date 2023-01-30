@@ -9,11 +9,19 @@ import {
   Input,
   FormInput,
   SearchIcon,
-} from "./styles";
+} from "./styled";
 import Logo from "../../imgs/SpaceKids_Logo.svg";
 import { FiShoppingBag, FiUser } from "react-icons/fi";
 
-const Header = () => {
+const Header = ({
+  products,
+  productsRender,
+  handleScreen,
+  handleTitleCategory,
+  accessoriesCategory,
+  cushionsCategory,
+  toysCategory,
+}) => {
   return (
     <HeaderContainer>
       <NavBar>
@@ -32,22 +40,56 @@ const Header = () => {
         </FormInput>
 
         <OptionsList>
-          <li>
-            <a href="#">Acessórios</a>
+          <li
+            onClick={() => {
+              productsRender(products);
+              handleScreen(1);
+            }}
+          >
+            Início
           </li>
-          <li>
-            <a href="#">Almofadas</a>
+          <li
+            onClick={() => {
+              productsRender(accessoriesCategory);
+              handleScreen(2);
+              handleTitleCategory("Acessórios");
+            }}
+          >
+            Acessórios
           </li>
-          <li>
-            <a href="#">Brinquedos</a>
+          <li
+            onClick={() => {
+              productsRender(cushionsCategory);
+              handleScreen(2);
+              handleTitleCategory("Almofadas");
+            }}
+          >
+            Almofadas
           </li>
-          <li>
-            <a href="#">Contato</a>
+          <li
+            onClick={() => {
+              productsRender(toysCategory);
+              handleScreen(2);
+              handleTitleCategory("Brinquedos");
+            }}
+          >
+            Brinquedos
+          </li>
+          <li
+            onClick={() => {
+              handleScreen(3);
+            }}
+          >
+            Contato
           </li>
         </OptionsList>
 
         <Icons>
-          <Icon>
+          <Icon
+            onClick={() => {
+              handleScreen(4);
+            }}
+          >
             <FiUser />
           </Icon>
           <Icon>

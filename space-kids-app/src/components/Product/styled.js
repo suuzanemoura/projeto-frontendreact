@@ -4,7 +4,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   width: 17rem;
-  height: 29rem;
+  height: 27.5rem;
   justify-content: space-between;
   align-items: left;
   border: #67568c 1px solid;
@@ -15,11 +15,13 @@ export const Card = styled.div`
   h1 {
     color: #ff6e6c;
     font-size: 2rem;
+    line-height: 2rem;
   }
 
   h2 {
     font-size: 1.1rem;
     margin-top: 1rem;
+    line-height: 1.5rem;
   }
 `;
 

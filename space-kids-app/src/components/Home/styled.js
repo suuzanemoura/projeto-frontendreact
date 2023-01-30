@@ -86,5 +86,10 @@ export const Products = styled.div`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-  row-gap: 5rem;
+  gap: 4rem 2.9rem;
+
+  ::after {
+    content: "";
+    flex: 1;
+  }
 `;
