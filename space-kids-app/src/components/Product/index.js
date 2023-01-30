@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, ProductImage } from "./styles";
+import { Button, Card, ProductImage } from "./styled";
 import { FiShoppingBag } from "react-icons/fi";
 
 const Product = ({ product }) => {
