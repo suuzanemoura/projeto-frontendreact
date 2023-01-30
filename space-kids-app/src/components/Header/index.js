@@ -33,13 +33,13 @@ const Header = () => {
 
         <OptionsList>
           <li>
-            <a href="#">Brinquedos</a>
+            <a href="#">Acessórios</a>
           </li>
           <li>
             <a href="#">Almofadas</a>
           </li>
           <li>
-            <a href="#">Acessórios</a>
+            <a href="#">Brinquedos</a>
           </li>
           <li>
             <a href="#">Contato</a>
