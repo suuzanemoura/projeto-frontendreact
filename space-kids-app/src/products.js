@@ -288,16 +288,4 @@ export const products = [
     measure: "55.6 x 40.2 x 15.4 cm",
     category: "Brinquedos",
   },
-  {
-    id: 25,
-    name: "Tenda Foguete 3 em 1",
-    value: 209.99,
-    imageUrl: "https://m.media-amazon.com/images/I/617+hakfEoL._AC_SL1500_.jpg",
-    imageAlt:
-      "Imagem da Tenda Foguete Azul com Prata + poço de bola com cesta de basquete e túnel de rastreamento",
-    description:
-      "Crie um reino em qualquer canto da casa com esta barraca de brincar mágica para o seu pequeno. Design 3 em 1: barraca de foguete, poço de bola com cesta de basquete e túnel de rastreamento, mantém seus filhos entretidos por horas.",
-    measure: "Tamanho pacote: 50 x 50 x 5cm / 1.8kg",
-    category: "Brinquedos",
-  },
 ];
