@@ -2,19 +2,19 @@ import styled from "styled-components";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 export const FooterStyled = styled.footer`
-  background-color: #4c346b;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: #4c346b;
 `;
 
 export const InfoStore = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 2rem 5rem 3rem 5rem;
+  padding: 4rem 10rem 2rem 10rem;
   width: 100%;
 `;
 
@@ -61,9 +61,11 @@ export const Copyright = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
-  padding: 2rem 1rem;
-  width: 45rem;
+  padding: 1rem 1rem;
+  width: 100%;
+  background-color: #4c346b;
 
   p {
     font-size: 0.75rem;
@@ -74,10 +76,11 @@ export const Copyright = styled.div`
 export const GitHubIcon = styled(AiFillGithub)`
   font-size: 1.2rem;
   color: #fff;
-  margin: 0 0.4rem;
+  margin: 0.35rem 0.2rem;
 `;
 
 export const LinkedinIcon = styled(AiFillLinkedin)`
   font-size: 1.2rem;
   color: #fff;
+  margin: 0.35rem 0;
 `;

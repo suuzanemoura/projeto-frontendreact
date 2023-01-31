@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Nuvens from "../../imgs/Nuvens_Footer.svg";
 
 export const Main = styled.main`
   width: 100%;
@@ -9,10 +8,7 @@ export const Main = styled.main`
 export const ShowProducts = styled.section`
   display: flex;
   width: 100%;
-  padding: 1rem 2rem 10rem 1rem;
-  background-image: url(${Nuvens});
-  background-repeat: no-repeat;
-  background-position: bottom;
+  padding: 1rem 2rem 5rem 1rem;
 `;
 
 export const Filters = styled.aside`
