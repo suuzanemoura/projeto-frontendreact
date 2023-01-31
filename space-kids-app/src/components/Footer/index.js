@@ -76,17 +76,16 @@ const Footer = ({
         </NavBar>
       </InfoStore>
       <Copyright>
-        <p>
-          Space Kids © 2023. Todos os direitos reservados. Página desenvolvida
-          como objeto de estudos.
-        </p>
+        <p>Space Kids © 2023. Todos os direitos reservados.</p>
         <p>Desenvolvido por Suzane Moura.</p>
-        <a href="https://github.com/suuzanemoura/" target={"blank"}>
-          <GitHubIcon />
-        </a>
-        <a href="https://linkedin.com/in/suuzanemoura/" target={"blank"}>
-          <LinkedinIcon />
-        </a>
+        <div>
+          <a href="https://github.com/suuzanemoura/" target={"blank"}>
+            <GitHubIcon />
+          </a>
+          <a href="https://linkedin.com/in/suuzanemoura/" target={"blank"}>
+            <LinkedinIcon />
+          </a>
+        </div>
       </Copyright>
     </FooterStyled>
   );
