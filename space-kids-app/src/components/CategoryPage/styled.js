@@ -1,14 +1,18 @@
 import styled from "styled-components";
+import Nuvens from "../../imgs/Nuvens_Footer.svg";
 
 export const Main = styled.main`
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0 0;
 `;
 
 export const ShowProducts = styled.section`
   display: flex;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 2rem 10rem 1rem;
+  background-image: url(${Nuvens});
+  background-repeat: no-repeat;
+  background-position: bottom;
 `;
 
 export const Filters = styled.aside`
@@ -86,7 +90,7 @@ export const Products = styled.div`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-  gap: 4rem 2.97rem;
+  gap: 3rem 2.2rem;
 
   ::after {
     content: "";

@@ -105,7 +105,14 @@ const App = () => {
       />
       {/* <Sidebar /> */}
       {showScreen()}
-      <Footer />
+      <Footer
+        productsRender={productsRender}
+        handleScreen={handleScreen}
+        handleTitleCategory={handleTitleCategory}
+        accessoriesCategory={accessoriesCategory}
+        cushionsCategory={cushionsCategory}
+        toysCategory={toysCategory}
+      />
     </Container>
   );
 };

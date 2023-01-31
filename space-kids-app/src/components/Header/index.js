@@ -25,9 +25,14 @@ const Header = ({
   return (
     <HeaderContainer>
       <NavBar>
-        <a href="/">
-          <LogoDiv src={Logo} alt="Logo Space Kids" />
-        </a>
+        <LogoDiv
+          src={Logo}
+          alt="Logo Space Kids"
+          onClick={() => {
+            productsRender(products);
+            handleScreen(1);
+          }}
+        />
 
         <FormInput>
           <SearchIcon />
