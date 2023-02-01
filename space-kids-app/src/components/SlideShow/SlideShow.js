@@ -1,8 +1,8 @@
 import React from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import SlideImg01 from "../imgs/Slide01.jpg";
-import SlideImg02 from "../imgs/Slide02.jpg";
+import SlideImg01 from "../../assets/imgs/Slide01.jpg";
+import SlideImg02 from "../../assets/imgs/Slide02.jpg";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const spanStyle = {

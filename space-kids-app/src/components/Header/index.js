@@ -1,21 +1,10 @@
 import React from "react";
-import {
-  HeaderContainer,
-  LogoDiv,
-  NavBar,
-  OptionsList,
-  Icons,
-  Icon,
-  Input,
-  FormInput,
-  SearchIcon,
-} from "./styled";
-import Logo from "../../imgs/SpaceKids_Logo.svg";
-import { FiShoppingBag, FiUser } from "react-icons/fi";
+import Nav from "../Nav";
+import { HeaderContainer } from "./styled";
 
 const Header = ({
   products,
-  productsRender,
+  handleArrayProducts,
   handleScreen,
   handleTitleCategory,
   accessoriesCategory,
@@ -24,85 +13,15 @@ const Header = ({
 }) => {
   return (
     <HeaderContainer>
-      <NavBar>
-        <LogoDiv
-          src={Logo}
-          alt="Logo Space Kids"
-          onClick={() => {
-            productsRender(products);
-            handleScreen(1);
-          }}
-        />
-
-        <FormInput>
-          <SearchIcon />
-          <Input
-            autoComplete="off"
-            type="search"
-            name="search"
-            placeholder="Buscar"
-          />
-        </FormInput>
-
-        <OptionsList>
-          <li
-            onClick={() => {
-              productsRender(products);
-              handleScreen(1);
-            }}
-          >
-            Início
-          </li>
-          <li
-            onClick={() => {
-              productsRender(accessoriesCategory);
-              handleScreen(2);
-              handleTitleCategory("Acessórios");
-            }}
-          >
-            Acessórios
-          </li>
-          <li
-            onClick={() => {
-              productsRender(cushionsCategory);
-              handleScreen(2);
-              handleTitleCategory("Almofadas");
-            }}
-          >
-            Almofadas
-          </li>
-          <li
-            onClick={() => {
-              productsRender(toysCategory);
-              handleScreen(2);
-              handleTitleCategory("Brinquedos");
-            }}
-          >
-            Brinquedos
-          </li>
-          <li
-            onClick={() => {
-              handleScreen(3);
-            }}
-          >
-            Contato
-          </li>
-        </OptionsList>
-
-        <Icons>
-          <Icon
-            onClick={() => {
-              handleScreen(4);
-            }}
-          >
-            <FiUser />
-          </Icon>
-          <Icon>
-            <FiShoppingBag />
-            <p>0</p>
-          </Icon>
-        </Icons>
-      </NavBar>
+      <Nav
+        products={products}
+        handleArrayProducts={handleArrayProducts}
+        handleScreen={handleScreen}
+        handleTitleCategory={handleTitleCategory}
+        accessoriesCategory={accessoriesCategory}
+        cushionsCategory={cushionsCategory}
+        toysCategory={toysCategory}
+      />
     </HeaderContainer>
   );
 };

@@ -9,7 +9,7 @@ import {
   GitHubIcon,
   LinkedinIcon,
 } from "./styled";
-import Logo from "../../imgs/SpaceKids_Logo_Branco.svg";
+import Logo from "../../assets/imgs/SpaceKids_Logo_Branco.svg";
 
 const Footer = ({
   productsRender,

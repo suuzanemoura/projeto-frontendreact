@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Card, ProductImage } from "./styled";
 import { FiShoppingBag } from "react-icons/fi";
 
-const Product = ({ product }) => {
+const ProductCard = ({ product }) => {
   return (
     <Card key={product.key}>
       <ProductImage src={product.imageUrl} alt={product.imageAlt} />
@@ -16,4 +16,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default ProductCard;

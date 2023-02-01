@@ -3,21 +3,18 @@ import {
   Button,
   Filters,
   HeaderList,
+  HomeContainer,
   Input,
   ListProducts,
-  Main,
   Products,
   ShowProducts,
 } from "./styled";
+import { Slideshow } from "../../components/SlideShow/SlideShow";
 
-const CategoryPage = ({
-  products,
-  arrayProducts,
-  productsRender,
-  titleCategory,
-}) => {
+const Home = ({ productsRender }) => {
   return (
-    <Main>
+    <HomeContainer>
+      <Slideshow />
       <ShowProducts>
         <Filters>
           <h2>Filtros</h2>
@@ -43,18 +40,18 @@ const CategoryPage = ({
         </Filters>
         <ListProducts>
           <HeaderList>
-            <h2>{titleCategory}</h2>
+            <h2>Produtos</h2>
             <select>
               <option value="">Ordenar por:</option>
               <option value="lowest-price">Menor Preço</option>
               <option value="biggest-price">Maior Preço</option>
             </select>
           </HeaderList>
-          <Products>{arrayProducts}</Products>
+          <Products>{productsRender()}</Products>
         </ListProducts>
       </ShowProducts>
-    </Main>
+    </HomeContainer>
   );
 };
 
-export default CategoryPage;
+export default Home;
