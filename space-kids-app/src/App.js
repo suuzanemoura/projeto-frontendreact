@@ -4,14 +4,10 @@ import styled from "styled-components";
 
 //import components
 import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import Home from "./components/Home";
-import CategoryPage from "./components/CategoryPage";
-import Contact from "./components/Contact";
-import Login from "./components/LoginPage";
-import Register from "./components/RegisterPage";
+import MainPage from "./components/MainPage";
+import ProductCard from "./components/ProductCard";
+import Sidebar from "./components/ShoppingCart/Sidebar";
 import Footer from "./components/Footer";
-import Product from "./components/Product";
 
 //import products
 import { products } from "./products.js";
@@ -24,25 +20,25 @@ const Container = styled.div`
 `;
 
 const App = () => {
-  //FUNÇÃO PARA RENDERIZAR PRODUTOS NA TELA
-  const [arrayProducts, setArrayProducts] = useState(
-    products.map((product) => {
-      return <Product key={product.id} product={product} />;
-    })
-  );
+  //ESTADO ARRAY DE PRODUTOS
+  const [arrayProducts, setArrayProducts] = useState(products);
+  const handleArrayProducts = (array) => setArrayProducts(array);
 
-  const handleArrayProducts = (array) =>
-    setArrayProducts(
-      array.map((product) => {
-        return <Product key={product.id} product={product} />;
-      })
-    );
+  //ESTADO PARA TÍTULO CATEGORYPAGE
+  const [titleCategory, setTitleCategory] = useState("");
+  const handleTitleCategory = (title) => setTitleCategory(title);
 
-  const productsRender = (array) => {
-    handleArrayProducts(array);
-  };
+  //ESTADO PARA MUDANÇA DE TELA
+  const [screen, setScreen] = useState(1);
+  const handleScreen = (number) => setScreen(number);
 
-  //FUNÇÃO PARA FILTRAR
+  //FUNÇÃO PARA RENDERIZAR PRODUTOS
+  const productsRender = () =>
+    arrayProducts.map((product) => {
+      return <ProductCard key={product.id} product={product} />;
+    });
+
+  //FUNÇÃO PARA FILTRAR AS CATEGORIAS PARA HEADER E FOOTER
   const accessoriesCategory = products.filter((product) => {
     return product.category === "Acessórios";
   });
@@ -55,48 +51,12 @@ const App = () => {
     return product.category === "Brinquedos";
   });
 
-  const [titleCategory, setTitleCategory] = useState("");
-  const handleTitleCategory = (title) => setTitleCategory(title);
-
-  //USE STATE PARA MUDANÇA DE TELA
-  const [screen, setScreen] = useState(1);
-  const handleScreen = (screen) => setScreen(screen);
-  const showScreen = () => {
-    switch (screen) {
-      case 1:
-        return (
-          <Home
-            products={products}
-            arrayProducts={arrayProducts}
-            productsRender={productsRender}
-          />
-        );
-      case 2:
-        return (
-          <CategoryPage
-            products={products}
-            arrayProducts={arrayProducts}
-            productsRender={productsRender}
-            titleCategory={titleCategory}
-          />
-        );
-      case 3:
-        return <Contact />;
-      case 4:
-        return <Login />;
-      case 5:
-        return <Register />;
-      default:
-        return "Página não encontrada!";
-    }
-  };
-
   return (
     <Container>
       <GlobalStyled />
       <Header
         products={products}
-        productsRender={productsRender}
+        handleArrayProducts={handleArrayProducts}
         handleScreen={handleScreen}
         handleTitleCategory={handleTitleCategory}
         accessoriesCategory={accessoriesCategory}
@@ -104,7 +64,11 @@ const App = () => {
         toysCategory={toysCategory}
       />
       {/* <Sidebar /> */}
-      {showScreen()}
+      <MainPage
+        screen={screen}
+        productsRender={productsRender}
+        titleCategory={titleCategory}
+      />
       <Footer
         productsRender={productsRender}
         handleScreen={handleScreen}

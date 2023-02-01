@@ -9,12 +9,10 @@ import {
   Products,
   ShowProducts,
 } from "./styled";
-import { Slideshow } from "../SlideShow";
 
-const Home = ({ arrayProducts, productsRender }) => {
+const CategoryPage = ({ productsRender, titleCategory }) => {
   return (
     <Main>
-      <Slideshow />
       <ShowProducts>
         <Filters>
           <h2>Filtros</h2>
@@ -40,18 +38,18 @@ const Home = ({ arrayProducts, productsRender }) => {
         </Filters>
         <ListProducts>
           <HeaderList>
-            <h2>Produtos</h2>
+            <h2>{titleCategory}</h2>
             <select>
               <option value="">Ordenar por:</option>
               <option value="lowest-price">Menor Preço</option>
               <option value="biggest-price">Maior Preço</option>
             </select>
           </HeaderList>
-          <Products>{arrayProducts}</Products>
+          <Products>{productsRender()}</Products>
         </ListProducts>
       </ShowProducts>
     </Main>
   );
 };
 
-export default Home;
+export default CategoryPage;
