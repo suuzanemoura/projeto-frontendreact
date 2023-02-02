@@ -8,7 +8,7 @@ import Register from "../../pages/RegisterPage";
 
 import { Main } from "./styled";
 
-const MainPage = ({ screen, productsRender, titleCategory }) => {
+const MainPage = ({ screen, handleScreen, productsRender, titleCategory }) => {
   //FUNÇÃO PARA MUDANÇA DE TELA
   const showScreen = () => {
     switch (screen) {
@@ -24,9 +24,9 @@ const MainPage = ({ screen, productsRender, titleCategory }) => {
       case 3:
         return <Contact />;
       case 4:
-        return <Login />;
+        return <Login handleScreen={handleScreen} />;
       case 5:
-        return <Register />;
+        return <Register handleScreen={handleScreen} />;
       default:
         return "Página não encontrada!";
     }
