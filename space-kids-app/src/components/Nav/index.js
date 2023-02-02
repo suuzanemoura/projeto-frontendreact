@@ -20,6 +20,7 @@ const Nav = ({
   accessoriesCategory,
   cushionsCategory,
   toysCategory,
+  setRegister,
 }) => {
   return (
     <NavBar>

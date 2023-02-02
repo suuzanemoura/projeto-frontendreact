@@ -66,6 +66,7 @@ const App = () => {
       {/* <Sidebar /> */}
       <MainPage
         screen={screen}
+        handleScreen={handleScreen}
         productsRender={productsRender}
         titleCategory={titleCategory}
       />
