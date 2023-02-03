@@ -25,7 +25,7 @@ const App = () => {
   const handleArrayProducts = (array) => setArrayProducts(array);
 
   //ESTADO PARA TÍTULO CATEGORYPAGE
-  const [titleCategory, setTitleCategory] = useState("");
+  const [titleCategory, setTitleCategory] = useState("Produtos");
   const handleTitleCategory = (title) => setTitleCategory(title);
 
   //ESTADO PARA MUDANÇA DE TELA
@@ -53,14 +53,37 @@ const App = () => {
 
   //ESTADO PARA OS FILTROS
   const [lowestPrice, setLowestPrice] = useState(0);
-  const [biggestPrice, setBiggestPrice] = useState(550);
+  const [biggestPrice, setBiggestPrice] = useState(1000);
   const [ordination, setOrdination] = useState("");
+
+  const newArrayProducts = [
+    ...arrayProducts.filter((product) => {
+      return product.value <= biggestPrice && product.value >= lowestPrice;
+    }),
+  ];
+
+  console.log(newArrayProducts);
 
   //FUNÇÃO PARA RENDERIZAR PRODUTOS
   const productsRender = () =>
-    arrayProducts.map((product) => {
-      return <ProductCard key={product.id} product={product} />;
-    });
+    newArrayProducts
+      .sort((a, b) => {
+        switch (ordination) {
+          case "lowest-price":
+            return a.value - b.value;
+          case "biggest-price":
+            return b.value - a.value;
+          case "a-z":
+            return a.name.localeCompare(b.name);
+          case "z-a":
+            return b.name.localeCompare(a.name);
+          default:
+            return arrayProducts;
+        }
+      })
+      .map((product) => {
+        return <ProductCard key={product.id} product={product} />;
+      });
 
   //FUNÇÃO PARA FILTRAR AS CATEGORIAS PARA HEADER E FOOTER
   const accessoriesCategory = products.filter((product) => {
@@ -90,14 +113,23 @@ const App = () => {
         setSearch={setSearch}
         handleSearch={handleSearch}
         handleSearchByEnter={handleSearchByEnter}
+        setLowestPrice={setLowestPrice}
+        setBiggestPrice={setBiggestPrice}
+        setOrdination={setOrdination}
       />
       {/* <Sidebar /> */}
       <MainPage
         screen={screen}
         handleScreen={handleScreen}
-        arrayProducts={arrayProducts}
         productsRender={productsRender}
         titleCategory={titleCategory}
+        lowestPrice={lowestPrice}
+        setLowestPrice={setLowestPrice}
+        biggestPrice={biggestPrice}
+        setBiggestPrice={setBiggestPrice}
+        ordination={ordination}
+        setOrdination={setOrdination}
+        newArrayProducts={newArrayProducts}
       />
       <Footer
         productsRender={productsRender}

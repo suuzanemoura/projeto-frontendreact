@@ -14,6 +14,9 @@ const Header = ({
   setSearch,
   handleSearch,
   handleSearchByEnter,
+  setLowestPrice,
+  setBiggestPrice,
+  setOrdination,
 }) => {
   return (
     <HeaderContainer>
@@ -29,6 +32,9 @@ const Header = ({
         setSearch={setSearch}
         handleSearch={handleSearch}
         handleSearchByEnter={handleSearchByEnter}
+        setLowestPrice={setLowestPrice}
+        setBiggestPrice={setBiggestPrice}
+        setOrdination={setOrdination}
       />
     </HeaderContainer>
   );

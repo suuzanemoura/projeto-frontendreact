@@ -11,23 +11,45 @@ import { Main } from "./styled";
 const MainPage = ({
   screen,
   handleScreen,
-  arrayProducts,
   productsRender,
   titleCategory,
+  lowestPrice,
+  setLowestPrice,
+  biggestPrice,
+  setBiggestPrice,
+  ordination,
+  setOrdination,
+  newArrayProducts,
 }) => {
   //FUNÇÃO PARA MUDANÇA DE TELA
   const showScreen = () => {
     switch (screen) {
       case 1:
         return (
-          <Home arrayProducts={arrayProducts} productsRender={productsRender} />
+          <Home
+            productsRender={productsRender}
+            titleCategory={titleCategory}
+            lowestPrice={lowestPrice}
+            setLowestPrice={setLowestPrice}
+            biggestPrice={biggestPrice}
+            setBiggestPrice={setBiggestPrice}
+            ordination={ordination}
+            setOrdination={setOrdination}
+            newArrayProducts={newArrayProducts}
+          />
         );
       case 2:
         return (
           <CategoryPage
-            arrayProducts={arrayProducts}
             productsRender={productsRender}
             titleCategory={titleCategory}
+            lowestPrice={lowestPrice}
+            setLowestPrice={setLowestPrice}
+            biggestPrice={biggestPrice}
+            setBiggestPrice={setBiggestPrice}
+            ordination={ordination}
+            setOrdination={setOrdination}
+            newArrayProducts={newArrayProducts}
           />
         );
       case 3:

@@ -279,7 +279,7 @@ export const products = [
   },
   {
     id: 24,
-    name: "Guardiões da Galáxia - Baby Groot",
+    name: "Baby Groot - Guardiões da Galáxia",
     value: 205.33,
     imageUrl: "https://m.media-amazon.com/images/I/71lEo2iQd+L._AC_SL1200_.jpg",
     imageAlt: "Imagem do boneco Baby Groot - Guardiões da Galáxia",

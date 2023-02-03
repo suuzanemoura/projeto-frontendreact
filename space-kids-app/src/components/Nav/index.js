@@ -24,6 +24,9 @@ const Nav = ({
   setSearch,
   handleSearch,
   handleSearchByEnter,
+  setLowestPrice,
+  setBiggestPrice,
+  setOrdination,
 }) => {
   return (
     <NavBar>
@@ -33,6 +36,10 @@ const Nav = ({
         onClick={() => {
           handleArrayProducts(products);
           handleScreen(1);
+          handleTitleCategory("Produtos");
+          setLowestPrice(0);
+          setBiggestPrice(1000);
+          setOrdination("");
         }}
       />
 
@@ -67,6 +74,10 @@ const Nav = ({
           onClick={() => {
             handleArrayProducts(products);
             handleScreen(1);
+            handleTitleCategory("Produtos");
+            setLowestPrice(0);
+            setBiggestPrice(1000);
+            setOrdination("");
           }}
         >
           Início
