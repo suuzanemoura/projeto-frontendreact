@@ -1,14 +1,9 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
-  width: 100%;
-  padding: 0.5rem 0 0 0;
-`;
-
 export const ShowProducts = styled.section`
   display: flex;
   width: 100%;
-  padding: 1rem 2rem 5rem 1rem;
+  padding: 1rem 2rem 2rem 1rem;
 `;
 
 export const ListProducts = styled.section`
@@ -44,7 +39,7 @@ export const Products = styled.div`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-  gap: 3rem 2.6rem;
+  gap: 3rem 2.5rem;
 
   ::after {
     content: "";

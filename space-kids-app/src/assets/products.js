@@ -186,7 +186,7 @@ export const products = [
   },
   {
     id: 16,
-    name: "Robô Interativo R2-D2 com controle remoto",
+    name: "Robô Interativo R2-D2 - Star Wars",
     value: 284.9,
     imageUrl:
       "https://http2.mlstatic.com/D_NQ_NP_2X_726710-MLB50118160928_052022-F.jpg",
@@ -279,7 +279,7 @@ export const products = [
   },
   {
     id: 24,
-    name: "Guardiões da Galáxia - Baby Groot",
+    name: "Baby Groot - Guardiões da Galáxia",
     value: 205.33,
     imageUrl: "https://m.media-amazon.com/images/I/71lEo2iQd+L._AC_SL1200_.jpg",
     imageAlt: "Imagem do boneco Baby Groot - Guardiões da Galáxia",

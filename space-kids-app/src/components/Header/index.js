@@ -10,6 +10,13 @@ const Header = ({
   accessoriesCategory,
   cushionsCategory,
   toysCategory,
+  search,
+  setSearch,
+  handleSearch,
+  handleSearchByEnter,
+  setLowestPrice,
+  setBiggestPrice,
+  setOrdination,
 }) => {
   return (
     <HeaderContainer>
@@ -21,6 +28,13 @@ const Header = ({
         accessoriesCategory={accessoriesCategory}
         cushionsCategory={cushionsCategory}
         toysCategory={toysCategory}
+        search={search}
+        setSearch={setSearch}
+        handleSearch={handleSearch}
+        handleSearchByEnter={handleSearchByEnter}
+        setLowestPrice={setLowestPrice}
+        setBiggestPrice={setBiggestPrice}
+        setOrdination={setOrdination}
       />
     </HeaderContainer>
   );

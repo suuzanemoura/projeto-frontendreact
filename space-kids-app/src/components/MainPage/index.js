@@ -8,17 +8,48 @@ import Register from "../../pages/RegisterPage";
 
 import { Main } from "./styled";
 
-const MainPage = ({ screen, handleScreen, productsRender, titleCategory }) => {
+const MainPage = ({
+  screen,
+  handleScreen,
+  productsRender,
+  titleCategory,
+  lowestPrice,
+  setLowestPrice,
+  biggestPrice,
+  setBiggestPrice,
+  ordination,
+  setOrdination,
+  newArrayProducts,
+}) => {
   //FUNÇÃO PARA MUDANÇA DE TELA
   const showScreen = () => {
     switch (screen) {
       case 1:
-        return <Home productsRender={productsRender} />;
+        return (
+          <Home
+            productsRender={productsRender}
+            titleCategory={titleCategory}
+            lowestPrice={lowestPrice}
+            setLowestPrice={setLowestPrice}
+            biggestPrice={biggestPrice}
+            setBiggestPrice={setBiggestPrice}
+            ordination={ordination}
+            setOrdination={setOrdination}
+            newArrayProducts={newArrayProducts}
+          />
+        );
       case 2:
         return (
           <CategoryPage
             productsRender={productsRender}
             titleCategory={titleCategory}
+            lowestPrice={lowestPrice}
+            setLowestPrice={setLowestPrice}
+            biggestPrice={biggestPrice}
+            setBiggestPrice={setBiggestPrice}
+            ordination={ordination}
+            setOrdination={setOrdination}
+            newArrayProducts={newArrayProducts}
           />
         );
       case 3:

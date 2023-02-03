@@ -6,11 +6,11 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import MainPage from "./components/MainPage";
 import ProductCard from "./components/ProductCard";
-import Sidebar from "./components/ShoppingCart/Sidebar";
+import Sidebar from "./components/ShoppingCart";
 import Footer from "./components/Footer";
 
 //import products
-import { products } from "./products.js";
+import { products } from "./assets/products.js";
 
 const Container = styled.div`
   display: flex;
@@ -25,18 +25,65 @@ const App = () => {
   const handleArrayProducts = (array) => setArrayProducts(array);
 
   //ESTADO PARA TÍTULO CATEGORYPAGE
-  const [titleCategory, setTitleCategory] = useState("");
+  const [titleCategory, setTitleCategory] = useState("Produtos");
   const handleTitleCategory = (title) => setTitleCategory(title);
 
   //ESTADO PARA MUDANÇA DE TELA
   const [screen, setScreen] = useState(1);
   const handleScreen = (number) => setScreen(number);
 
+  //ESTADO PARA BUSCA PELO INPUT
+  const [search, setSearch] = useState("");
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+  const handleSearchByEnter = (e) => {
+    if (e.key === "Enter") {
+      setSearch(e.target.value);
+      handleTitleCategory("Resultado da pesquisa");
+      handleArrayProducts(
+        products.filter((product) => {
+          return product.name.toLowerCase().includes(search.toLowerCase());
+        })
+      );
+      handleScreen(2);
+      setSearch("");
+    }
+  };
+
+  //ESTADO PARA OS FILTROS
+  const [lowestPrice, setLowestPrice] = useState(0);
+  const [biggestPrice, setBiggestPrice] = useState(1000);
+  const [ordination, setOrdination] = useState("");
+
+  const newArrayProducts = [
+    ...arrayProducts.filter((product) => {
+      return product.value <= biggestPrice && product.value >= lowestPrice;
+    }),
+  ];
+
+  console.log(newArrayProducts);
+
   //FUNÇÃO PARA RENDERIZAR PRODUTOS
   const productsRender = () =>
-    arrayProducts.map((product) => {
-      return <ProductCard key={product.id} product={product} />;
-    });
+    newArrayProducts
+      .sort((a, b) => {
+        switch (ordination) {
+          case "lowest-price":
+            return a.value - b.value;
+          case "biggest-price":
+            return b.value - a.value;
+          case "a-z":
+            return a.name.localeCompare(b.name);
+          case "z-a":
+            return b.name.localeCompare(a.name);
+          default:
+            return arrayProducts;
+        }
+      })
+      .map((product) => {
+        return <ProductCard key={product.id} product={product} />;
+      });
 
   //FUNÇÃO PARA FILTRAR AS CATEGORIAS PARA HEADER E FOOTER
   const accessoriesCategory = products.filter((product) => {
@@ -62,6 +109,13 @@ const App = () => {
         accessoriesCategory={accessoriesCategory}
         cushionsCategory={cushionsCategory}
         toysCategory={toysCategory}
+        search={search}
+        setSearch={setSearch}
+        handleSearch={handleSearch}
+        handleSearchByEnter={handleSearchByEnter}
+        setLowestPrice={setLowestPrice}
+        setBiggestPrice={setBiggestPrice}
+        setOrdination={setOrdination}
       />
       {/* <Sidebar /> */}
       <MainPage
@@ -69,6 +123,13 @@ const App = () => {
         handleScreen={handleScreen}
         productsRender={productsRender}
         titleCategory={titleCategory}
+        lowestPrice={lowestPrice}
+        setLowestPrice={setLowestPrice}
+        biggestPrice={biggestPrice}
+        setBiggestPrice={setBiggestPrice}
+        ordination={ordination}
+        setOrdination={setOrdination}
+        newArrayProducts={newArrayProducts}
       />
       <Footer
         productsRender={productsRender}
