@@ -20,7 +20,9 @@ const Nav = ({
   accessoriesCategory,
   cushionsCategory,
   toysCategory,
-  setRegister,
+  search,
+  setSearch,
+  handleSearch,
 }) => {
   return (
     <NavBar>
@@ -34,12 +36,27 @@ const Nav = ({
       />
 
       <FormInput>
-        <SearchIcon />
+        <SearchIcon
+          onClick={() => {
+            handleTitleCategory("Resultado da pesquisa");
+            handleArrayProducts(
+              products.filter((product) => {
+                return product.name
+                  .toLowerCase()
+                  .includes(search.toLowerCase());
+              })
+            );
+            handleScreen(2);
+            setSearch("");
+          }}
+        />
         <Input
           autoComplete="off"
           type="search"
           name="search"
           placeholder="Buscar"
+          value={search}
+          onChange={handleSearch}
         />
       </FormInput>
 

@@ -8,15 +8,24 @@ import Register from "../../pages/RegisterPage";
 
 import { Main } from "./styled";
 
-const MainPage = ({ screen, handleScreen, productsRender, titleCategory }) => {
+const MainPage = ({
+  screen,
+  handleScreen,
+  arrayProducts,
+  productsRender,
+  titleCategory,
+}) => {
   //FUNÇÃO PARA MUDANÇA DE TELA
   const showScreen = () => {
     switch (screen) {
       case 1:
-        return <Home productsRender={productsRender} />;
+        return (
+          <Home arrayProducts={arrayProducts} productsRender={productsRender} />
+        );
       case 2:
         return (
           <CategoryPage
+            arrayProducts={arrayProducts}
             productsRender={productsRender}
             titleCategory={titleCategory}
           />

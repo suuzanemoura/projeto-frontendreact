@@ -3,14 +3,16 @@ import {
   Button,
   Filters,
   HeaderList,
+  HeaderInfos,
   Input,
   ListProducts,
   Main,
   Products,
+  Select,
   ShowProducts,
 } from "./styled";
 
-const CategoryPage = ({ productsRender, titleCategory }) => {
+const CategoryPage = ({ arrayProducts, productsRender, titleCategory }) => {
   return (
     <Main>
       <ShowProducts>
@@ -38,12 +40,17 @@ const CategoryPage = ({ productsRender, titleCategory }) => {
         </Filters>
         <ListProducts>
           <HeaderList>
-            <h2>{titleCategory}</h2>
-            <select>
+            <HeaderInfos>
+              <h2>{titleCategory}</h2>
+              <p>
+                <strong>{arrayProducts.length}</strong> produtos encontrados
+              </p>
+            </HeaderInfos>
+            <Select>
               <option value="">Ordenar por:</option>
               <option value="lowest-price">Menor Preço</option>
               <option value="biggest-price">Maior Preço</option>
-            </select>
+            </Select>
           </HeaderList>
           <Products>{productsRender()}</Products>
         </ListProducts>

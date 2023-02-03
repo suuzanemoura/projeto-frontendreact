@@ -62,7 +62,9 @@ export const HeaderList = styled.header`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
+`;
 
+export const HeaderInfos = styled.div`
   h2 {
     color: #301e4e;
     font-family: "Barrio", cursive;
@@ -71,12 +73,17 @@ export const HeaderList = styled.header`
     margin-bottom: 1rem;
   }
 
-  select {
-    width: 8rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: #301e4e 1px solid;
+  p {
+    font-size: 0.8rem;
   }
+`;
+
+export const Select = styled.select`
+  width: 8rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: #301e4e 1px solid;
 `;
 
 export const Products = styled.div`

@@ -10,6 +10,9 @@ const Header = ({
   accessoriesCategory,
   cushionsCategory,
   toysCategory,
+  search,
+  setSearch,
+  handleSearch,
 }) => {
   return (
     <HeaderContainer>
@@ -21,6 +24,9 @@ const Header = ({
         accessoriesCategory={accessoriesCategory}
         cushionsCategory={cushionsCategory}
         toysCategory={toysCategory}
+        search={search}
+        setSearch={setSearch}
+        handleSearch={handleSearch}
       />
     </HeaderContainer>
   );

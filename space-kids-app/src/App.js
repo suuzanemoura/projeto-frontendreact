@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import MainPage from "./components/MainPage";
 import ProductCard from "./components/ProductCard";
-import Sidebar from "./components/ShoppingCart/Sidebar";
+import Sidebar from "./components/ShoppingCart";
 import Footer from "./components/Footer";
 
 //import products
@@ -31,6 +31,17 @@ const App = () => {
   //ESTADO PARA MUDANÇA DE TELA
   const [screen, setScreen] = useState(1);
   const handleScreen = (number) => setScreen(number);
+
+  //ESTADO PARA BUSCA PELO INPUT
+  const [search, setSearch] = useState("");
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  //ESTADO PARA OS FILTROS
+  const [lowestPrice, setLowestPrice] = useState(0);
+  const [biggestPrice, setBiggestPrice] = useState(550);
+  const [ordination, setOrdination] = useState("");
 
   //FUNÇÃO PARA RENDERIZAR PRODUTOS
   const productsRender = () =>
@@ -62,13 +73,19 @@ const App = () => {
         accessoriesCategory={accessoriesCategory}
         cushionsCategory={cushionsCategory}
         toysCategory={toysCategory}
+        search={search}
+        setSearch={setSearch}
+        handleSearch={handleSearch}
       />
       {/* <Sidebar /> */}
       <MainPage
         screen={screen}
         handleScreen={handleScreen}
+        arrayProducts={arrayProducts}
         productsRender={productsRender}
         titleCategory={titleCategory}
+        search={search}
+        handleSearch={handleSearch}
       />
       <Footer
         productsRender={productsRender}

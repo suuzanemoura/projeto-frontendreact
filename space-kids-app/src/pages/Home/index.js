@@ -2,16 +2,18 @@ import React from "react";
 import {
   Button,
   Filters,
+  HeaderInfos,
   HeaderList,
   HomeContainer,
   Input,
   ListProducts,
   Products,
+  Select,
   ShowProducts,
 } from "./styled";
 import { Slideshow } from "../../components/SlideShow/SlideShow";
 
-const Home = ({ productsRender }) => {
+const Home = ({ arrayProducts, productsRender }) => {
   return (
     <HomeContainer>
       <Slideshow />
@@ -40,12 +42,17 @@ const Home = ({ productsRender }) => {
         </Filters>
         <ListProducts>
           <HeaderList>
-            <h2>Produtos</h2>
-            <select>
+            <HeaderInfos>
+              <h2>Produtos</h2>
+              <p>
+                <strong>{arrayProducts.length}</strong> produtos encontrados
+              </p>
+            </HeaderInfos>
+            <Select>
               <option value="">Ordenar por:</option>
               <option value="lowest-price">Menor Preço</option>
               <option value="biggest-price">Maior Preço</option>
-            </select>
+            </Select>
           </HeaderList>
           <Products>{productsRender()}</Products>
         </ListProducts>
