@@ -93,7 +93,7 @@ export const Products = styled.div`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-  gap: 3rem 2.2rem;
+  gap: 3rem 2.6rem;
 
   ::after {
     content: "";

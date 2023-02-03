@@ -186,7 +186,7 @@ export const products = [
   },
   {
     id: 16,
-    name: "Robô Interativo R2-D2 com controle remoto",
+    name: "Robô Interativo R2-D2 - Star Wars",
     value: 284.9,
     imageUrl:
       "https://http2.mlstatic.com/D_NQ_NP_2X_726710-MLB50118160928_052022-F.jpg",

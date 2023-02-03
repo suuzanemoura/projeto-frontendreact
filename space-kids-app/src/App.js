@@ -10,7 +10,7 @@ import Sidebar from "./components/ShoppingCart";
 import Footer from "./components/Footer";
 
 //import products
-import { products } from "./products.js";
+import { products } from "./assets/products.js";
 
 const Container = styled.div`
   display: flex;
@@ -36,6 +36,19 @@ const App = () => {
   const [search, setSearch] = useState("");
   const handleSearch = (e) => {
     setSearch(e.target.value);
+  };
+  const handleSearchByEnter = (e) => {
+    if (e.key === "Enter") {
+      setSearch(e.target.value);
+      handleTitleCategory("Resultado da pesquisa");
+      handleArrayProducts(
+        products.filter((product) => {
+          return product.name.toLowerCase().includes(search.toLowerCase());
+        })
+      );
+      handleScreen(2);
+      setSearch("");
+    }
   };
 
   //ESTADO PARA OS FILTROS
@@ -76,6 +89,7 @@ const App = () => {
         search={search}
         setSearch={setSearch}
         handleSearch={handleSearch}
+        handleSearchByEnter={handleSearchByEnter}
       />
       {/* <Sidebar /> */}
       <MainPage
@@ -84,8 +98,6 @@ const App = () => {
         arrayProducts={arrayProducts}
         productsRender={productsRender}
         titleCategory={titleCategory}
-        search={search}
-        handleSearch={handleSearch}
       />
       <Footer
         productsRender={productsRender}

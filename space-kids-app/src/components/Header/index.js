@@ -13,6 +13,7 @@ const Header = ({
   search,
   setSearch,
   handleSearch,
+  handleSearchByEnter,
 }) => {
   return (
     <HeaderContainer>
@@ -27,6 +28,7 @@ const Header = ({
         search={search}
         setSearch={setSearch}
         handleSearch={handleSearch}
+        handleSearchByEnter={handleSearchByEnter}
       />
     </HeaderContainer>
   );

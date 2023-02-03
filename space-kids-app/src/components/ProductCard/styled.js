@@ -16,12 +16,13 @@ export const Card = styled.div`
     color: #ff6e6c;
     font-size: 2rem;
     line-height: 2rem;
+    margin-top: 0.35rem;
   }
 
   h2 {
     font-size: 1.1rem;
     margin-top: 1rem;
-    line-height: 1.5rem;
+    line-height: 1.3rem;
   }
 `;
 

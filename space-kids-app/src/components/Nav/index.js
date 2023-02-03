@@ -23,6 +23,7 @@ const Nav = ({
   search,
   setSearch,
   handleSearch,
+  handleSearchByEnter,
 }) => {
   return (
     <NavBar>
@@ -57,6 +58,7 @@ const Nav = ({
           placeholder="Buscar"
           value={search}
           onChange={handleSearch}
+          onKeyUp={handleSearchByEnter}
         />
       </FormInput>
 
