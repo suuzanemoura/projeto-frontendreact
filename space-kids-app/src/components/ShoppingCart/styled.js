@@ -39,7 +39,7 @@ export const CloseIcon = styled(IoIosClose)`
 `;
 
 export const EmptyCart = styled.div`
-  display: ${(props) => (props.cartArray.length === 0 ? "flex" : "none")};
+  display: ${(props) => (props.cartProducts.length === 0 ? "flex" : "none")};
   flex-direction: column;
   width: 100%;
   height: 90%;
@@ -64,9 +64,57 @@ export const Astronaut = styled.img`
 `;
 
 export const CartWithItens = styled.div`
-  display: ${(props) => (props.cartArray.length === 0 ? "none" : "flex")};
+  display: ${(props) => (props.cartProducts.length === 0 ? "none" : "flex")};
   flex-direction: column;
-  flex-wrap: wrap;
   margin-top: 1rem;
   padding: 1rem;
+  height: 100%;
+  align-items: center;
+
+  p {
+    color: #ff6e6c;
+    font-size: 0.85rem;
+    margin: 0.5rem;
+    cursor: pointer;
+  }
+`;
+
+export const CartItens = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 0 0;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  overflow-y: auto;
+  height: 74%;
+`;
+
+export const TotalAmount = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+`;
+
+export const Button = styled.button`
+  width: 100%;
+  background-color: #301e4e;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  color: #fff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+
+  :hover {
+    background-color: #463366;
+  }
+
+  :active {
+    background-color: #67568c;
+  }
 `;

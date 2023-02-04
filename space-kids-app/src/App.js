@@ -36,10 +36,24 @@ const App = () => {
   //ESTADO PARA ABRIR E FECHAR CARRINHO
   const [cartIsOpen, setCartIsOpen] = useState("-100%");
 
-  //ESTADO PARA ARRAY CARRINHO
-  const [cartArray, setCartArray] = useState([]);
-  const handleCartArray = (array) => setCartArray(array);
-  console.log(cartArray);
+  //ESTADO PARA PRODUTOS NO CARRINHO
+  const [cartProducts, setCartProducts] = useState([]);
+
+  //ESTADO QUANTIDADE DE PRODUTO NO CARRINHO
+  const [quantity, setQuantity] = useState(1);
+  const handleQuantity = (e) => setQuantity(e.target.value);
+
+  //FUNÇÃO PARA ADICIONAR PRODUTO NO CARRINHO
+  const addProductCart = (product) => {
+    const newCartProducts = [...cartProducts, product];
+    setCartProducts(newCartProducts);
+  };
+
+  //FUNÇÃO PARA REMOVER PRODUTO NO CARRINHO
+  const removeCartProduct = (product) => {
+    const filteredList = cartProducts.filter((item) => item !== product);
+    setCartProducts(filteredList);
+  };
 
   //ESTADO PARA BUSCA PELO INPUT
   const [search, setSearch] = useState("");
@@ -75,7 +89,7 @@ const App = () => {
   ];
 
   //FUNÇÃO PARA RENDERIZAR PRODUTOS COM ORDENAÇÃO
-  const productsRender = () => {
+  const productsRender = () =>
     newArrayProducts
       .sort((a, b) => {
         switch (ordination) {
@@ -92,16 +106,31 @@ const App = () => {
         }
       })
       .map((product) => {
-        return <ProductCard key={product.id} product={product} />;
+        return (
+          <ProductCard
+            key={product.id}
+            product={product}
+            addProductCart={addProductCart}
+            setCartIsOpen={setCartIsOpen}
+          />
+        );
       });
-  };
 
   //FUNÇÃO PARA RENDERIZAR PRODUTOS NO CARRINHO
-  const cartItemRender = () => {
-    cartArray.map((product) => {
-      return <CartItem key={product.id} product={product} />;
+  const cartItemRender = () =>
+    cartProducts.map((product) => {
+      return (
+        <CartItem
+          key={product.id}
+          product={product}
+          handleQuantity={handleQuantity}
+          addProductCart={addProductCart}
+          removeCartProduct={removeCartProduct}
+          quantity={quantity}
+          setQuantity={setQuantity}
+        />
+      );
     });
-  };
 
   //FUNÇÃO PARA FILTRAR AS CATEGORIAS PARA HEADER E FOOTER
   const accessoriesCategory = products.filter((product) => {
@@ -134,13 +163,13 @@ const App = () => {
         setLowestPrice={setLowestPrice}
         setBiggestPrice={setBiggestPrice}
         setOrdination={setOrdination}
-        cartIsOpen={cartIsOpen}
         setCartIsOpen={setCartIsOpen}
+        cartProducts={cartProducts}
       />
       <ShoppingCart
         cartIsOpen={cartIsOpen}
         setCartIsOpen={setCartIsOpen}
-        cartArray={cartArray}
+        cartProducts={cartProducts}
         cartItemRender={cartItemRender}
       />
       <MainPage

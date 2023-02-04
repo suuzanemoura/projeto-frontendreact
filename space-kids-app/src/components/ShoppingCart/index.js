@@ -1,24 +1,24 @@
 import React from "react";
 import {
   Astronaut,
+  Button,
+  CartItens,
   CartWithItens,
   CloseIcon,
   EmptyCart,
   HeaderCart,
   SidebarCart,
+  TotalAmount,
 } from "./styled";
 import Overlay from "../Overlay";
 import AstronautCart from "../../assets/imgs/SpaceKids_Cart.svg";
-import CartItem from "../CartItem";
 
-const ShoppingCart = ({ cartIsOpen, setCartIsOpen, cartArray }) => {
-  //FUNÇÃO PARA RENDERIZAR PRODUTOS NO CARRINHO
-  const cartItemRender = () => {
-    cartArray.map((product) => {
-      return <CartItem key={product.id} product={product} />;
-    });
-  };
-
+const ShoppingCart = ({
+  cartIsOpen,
+  setCartIsOpen,
+  cartProducts,
+  cartItemRender,
+}) => {
   return (
     <div>
       <SidebarCart cartIsOpen={cartIsOpen}>
@@ -26,7 +26,7 @@ const ShoppingCart = ({ cartIsOpen, setCartIsOpen, cartArray }) => {
           <CloseIcon onClick={() => setCartIsOpen("-100%")} />
           <h2>Carrinho de Compras</h2>
         </HeaderCart>
-        <EmptyCart cartArray={cartArray}>
+        <EmptyCart cartProducts={cartProducts}>
           <p>Carrinho de compras está vazio.</p>
           <Astronaut
             src={AstronautCart}
@@ -34,13 +34,13 @@ const ShoppingCart = ({ cartIsOpen, setCartIsOpen, cartArray }) => {
           />
         </EmptyCart>
 
-        <CartWithItens cartArray={cartArray}>
-          {cartItemRender()}
-          <h1>Total: R$00,00</h1>
-          <div>
-            <h3>Ver mais produtos</h3>
-            <button>Finalizar compra</button>
-          </div>
+        <CartWithItens cartProducts={cartProducts}>
+          <CartItens>{cartItemRender()}</CartItens>
+          <TotalAmount>
+            <h1>Total:</h1> <h1>R$00,00</h1>
+          </TotalAmount>
+          <Button>Finalizar compra</Button>
+          <p onClick={() => setCartIsOpen("-100%")}>Ver mais produtos</p>
         </CartWithItens>
       </SidebarCart>
 
