@@ -6,11 +6,12 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import MainPage from "./components/MainPage";
 import ProductCard from "./components/ProductCard";
-import Sidebar from "./components/ShoppingCart";
+import ShoppingCart from "./components/ShoppingCart";
 import Footer from "./components/Footer";
 
 //import products
 import { products } from "./assets/products.js";
+import CartItem from "./components/CartItem";
 
 const Container = styled.div`
   display: flex;
@@ -32,11 +33,21 @@ const App = () => {
   const [screen, setScreen] = useState(1);
   const handleScreen = (number) => setScreen(number);
 
+  //ESTADO PARA ABRIR E FECHAR CARRINHO
+  const [cartIsOpen, setCartIsOpen] = useState("-100%");
+
+  //ESTADO PARA ARRAY CARRINHO
+  const [cartArray, setCartArray] = useState([]);
+  const handleCartArray = (array) => setCartArray(array);
+  console.log(cartArray);
+
   //ESTADO PARA BUSCA PELO INPUT
   const [search, setSearch] = useState("");
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
+
+  //FUNÇÃO PARA BUSCA PELO INPUT USANDO ENTER
   const handleSearchByEnter = (e) => {
     if (e.key === "Enter") {
       setSearch(e.target.value);
@@ -56,16 +67,15 @@ const App = () => {
   const [biggestPrice, setBiggestPrice] = useState(1000);
   const [ordination, setOrdination] = useState("");
 
+  //ARRAY ATUALIZADO COM FILTRO DE PREÇO
   const newArrayProducts = [
     ...arrayProducts.filter((product) => {
       return product.value <= biggestPrice && product.value >= lowestPrice;
     }),
   ];
 
-  console.log(newArrayProducts);
-
-  //FUNÇÃO PARA RENDERIZAR PRODUTOS
-  const productsRender = () =>
+  //FUNÇÃO PARA RENDERIZAR PRODUTOS COM ORDENAÇÃO
+  const productsRender = () => {
     newArrayProducts
       .sort((a, b) => {
         switch (ordination) {
@@ -84,6 +94,14 @@ const App = () => {
       .map((product) => {
         return <ProductCard key={product.id} product={product} />;
       });
+  };
+
+  //FUNÇÃO PARA RENDERIZAR PRODUTOS NO CARRINHO
+  const cartItemRender = () => {
+    cartArray.map((product) => {
+      return <CartItem key={product.id} product={product} />;
+    });
+  };
 
   //FUNÇÃO PARA FILTRAR AS CATEGORIAS PARA HEADER E FOOTER
   const accessoriesCategory = products.filter((product) => {
@@ -116,8 +134,15 @@ const App = () => {
         setLowestPrice={setLowestPrice}
         setBiggestPrice={setBiggestPrice}
         setOrdination={setOrdination}
+        cartIsOpen={cartIsOpen}
+        setCartIsOpen={setCartIsOpen}
       />
-      {/* <Sidebar /> */}
+      <ShoppingCart
+        cartIsOpen={cartIsOpen}
+        setCartIsOpen={setCartIsOpen}
+        cartArray={cartArray}
+        cartItemRender={cartItemRender}
+      />
       <MainPage
         screen={screen}
         handleScreen={handleScreen}

@@ -16,7 +16,8 @@ export const LoginContainer = styled.section`
 
   h1 {
     color: #301e4e;
-    font-family: "Barrio", cursive;
+    font-family: "Barriecito", cursive;
+    text-transform: uppercase;
     text-decoration: 0.2rem solid underline #ff6e6c;
     text-underline-offset: 0.5rem;
     margin-bottom: 2rem;

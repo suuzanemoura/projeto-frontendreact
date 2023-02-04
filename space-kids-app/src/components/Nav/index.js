@@ -27,6 +27,8 @@ const Nav = ({
   setLowestPrice,
   setBiggestPrice,
   setOrdination,
+  cartIsOpen,
+  setCartIsOpen,
 }) => {
   return (
     <NavBar>
@@ -127,7 +129,7 @@ const Nav = ({
           <FiUser />
         </Icon>
         <Icon>
-          <FiShoppingBag />
+          <FiShoppingBag onClick={() => setCartIsOpen("0")} />
           <p>0</p>
         </Icon>
       </Icons>

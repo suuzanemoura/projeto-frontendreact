@@ -17,6 +17,8 @@ const Header = ({
   setLowestPrice,
   setBiggestPrice,
   setOrdination,
+  cartIsOpen,
+  setCartIsOpen,
 }) => {
   return (
     <HeaderContainer>
@@ -35,6 +37,8 @@ const Header = ({
         setLowestPrice={setLowestPrice}
         setBiggestPrice={setBiggestPrice}
         setOrdination={setOrdination}
+        cartIsOpen={cartIsOpen}
+        setCartIsOpen={setCartIsOpen}
       />
     </HeaderContainer>
   );
