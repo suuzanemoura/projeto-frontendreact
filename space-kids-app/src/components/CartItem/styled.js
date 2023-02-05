@@ -57,23 +57,6 @@ export const Quantity = styled.div`
   justify-content: space-between;
 `;
 
-export const Input = styled.input`
-  width: 3rem;
-  text-align: center;
-  border: none;
-  background: transparent;
-
-  :focus {
-    outline: 0;
-  }
-
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-`;
-
 export const AddIcon = styled(IoAddOutline)`
   :hover {
     color: #ff6e6c;

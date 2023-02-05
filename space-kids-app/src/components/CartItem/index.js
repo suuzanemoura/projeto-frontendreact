@@ -9,16 +9,13 @@ import {
   AddIcon,
   RemoveIcon,
   Quantity,
-  Input,
 } from "./styled";
 
 const CartItem = ({
   product,
   addProductCart,
+  removeCartItem,
   removeCartProduct,
-  quantity,
-  setQuantity,
-  handleQuantity,
 }) => {
   return (
     <Card key={product.key}>
@@ -29,22 +26,22 @@ const CartItem = ({
           <TrashIcon
             onClick={() => {
               removeCartProduct(product);
-              setQuantity(1);
             }}
           />
         </NameItem>
         <ValueItem>
           <Quantity>
-            <RemoveIcon onClick={() => removeCartProduct(product)} />
-            <Input
-              type="number"
-              min="1"
-              value={quantity}
-              onChange={handleQuantity}
+            <RemoveIcon onClick={() => removeCartItem(product)} />
+            {product.amount}
+            <AddIcon
+              onClick={() => {
+                addProductCart(product, product.id);
+              }}
             />
-            <AddIcon onClick={() => addProductCart(product)} />
           </Quantity>
-          <h4>R$ {(product.value * quantity).toFixed(2).replace(".", ",")}</h4>
+          <h4>
+            R$ {(product.value * product.amount).toFixed(2).replace(".", ",")}
+          </h4>
         </ValueItem>
       </CardInfos>
     </Card>

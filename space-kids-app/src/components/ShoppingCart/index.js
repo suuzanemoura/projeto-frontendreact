@@ -16,8 +16,9 @@ import AstronautCart from "../../assets/imgs/SpaceKids_Cart.svg";
 const ShoppingCart = ({
   cartIsOpen,
   setCartIsOpen,
-  cartProducts,
+  cart,
   cartItemRender,
+  total,
 }) => {
   return (
     <div>
@@ -26,7 +27,7 @@ const ShoppingCart = ({
           <CloseIcon onClick={() => setCartIsOpen("-100%")} />
           <h2>Carrinho de Compras</h2>
         </HeaderCart>
-        <EmptyCart cartProducts={cartProducts}>
+        <EmptyCart cart={cart}>
           <p>Carrinho de compras está vazio.</p>
           <Astronaut
             src={AstronautCart}
@@ -34,10 +35,10 @@ const ShoppingCart = ({
           />
         </EmptyCart>
 
-        <CartWithItens cartProducts={cartProducts}>
+        <CartWithItens cart={cart}>
           <CartItens>{cartItemRender()}</CartItens>
           <TotalAmount>
-            <h1>Total:</h1> <h1>R$00,00</h1>
+            <h1>Total:</h1> <h1>R${total.toFixed(2).replace(".", ",")}</h1>
           </TotalAmount>
           <Button>Finalizar compra</Button>
           <p onClick={() => setCartIsOpen("-100%")}>Ver mais produtos</p>

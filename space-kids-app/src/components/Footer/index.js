@@ -12,12 +12,15 @@ import {
 import Logo from "../../assets/imgs/SpaceKids_Logo_Branco.svg";
 
 const Footer = ({
-  productsRender,
+  handleArrayProducts,
   handleScreen,
   handleTitleCategory,
   accessoriesCategory,
   cushionsCategory,
   toysCategory,
+  setLowestPrice,
+  setBiggestPrice,
+  setOrdination,
 }) => {
   return (
     <FooterStyled>
@@ -30,27 +33,36 @@ const Footer = ({
             </p>
             <li
               onClick={() => {
-                productsRender(accessoriesCategory);
+                handleArrayProducts(accessoriesCategory);
                 handleScreen(2);
                 handleTitleCategory("Acessórios");
+                setLowestPrice(0);
+                setBiggestPrice(1000);
+                setOrdination("");
               }}
             >
               Acessórios
             </li>
             <li
               onClick={() => {
-                productsRender(cushionsCategory);
+                handleArrayProducts(cushionsCategory);
                 handleScreen(2);
                 handleTitleCategory("Almofadas");
+                setLowestPrice(0);
+                setBiggestPrice(1000);
+                setOrdination("");
               }}
             >
               Almofadas
             </li>
             <li
               onClick={() => {
-                productsRender(toysCategory);
+                handleArrayProducts(toysCategory);
                 handleScreen(2);
                 handleTitleCategory("Brinquedos");
+                setLowestPrice(0);
+                setBiggestPrice(1000);
+                setOrdination("");
               }}
             >
               Brinquedos

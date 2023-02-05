@@ -28,7 +28,7 @@ const Nav = ({
   setBiggestPrice,
   setOrdination,
   setCartIsOpen,
-  cartProducts,
+  itemAmount,
 }) => {
   return (
     <NavBar>
@@ -58,6 +58,9 @@ const Nav = ({
             );
             handleScreen(2);
             setSearch("");
+            setLowestPrice(0);
+            setBiggestPrice(1000);
+            setOrdination("");
           }}
         />
         <Input
@@ -89,6 +92,9 @@ const Nav = ({
             handleArrayProducts(accessoriesCategory);
             handleScreen(2);
             handleTitleCategory("Acessórios");
+            setLowestPrice(0);
+            setBiggestPrice(1000);
+            setOrdination("");
           }}
         >
           Acessórios
@@ -98,6 +104,9 @@ const Nav = ({
             handleArrayProducts(cushionsCategory);
             handleScreen(2);
             handleTitleCategory("Almofadas");
+            setLowestPrice(0);
+            setBiggestPrice(1000);
+            setOrdination("");
           }}
         >
           Almofadas
@@ -107,6 +116,9 @@ const Nav = ({
             handleArrayProducts(toysCategory);
             handleScreen(2);
             handleTitleCategory("Brinquedos");
+            setLowestPrice(0);
+            setBiggestPrice(1000);
+            setOrdination("");
           }}
         >
           Brinquedos
@@ -130,7 +142,7 @@ const Nav = ({
         </Icon>
         <Icon onClick={() => setCartIsOpen("0")}>
           <FiShoppingBag />
-          <p>{cartProducts.length}</p>
+          <p>{itemAmount}</p>
         </Icon>
       </Icons>
     </NavBar>

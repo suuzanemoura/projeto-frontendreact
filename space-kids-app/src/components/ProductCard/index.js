@@ -11,7 +11,7 @@ const ProductCard = ({ product, addProductCart, setCartIsOpen }) => {
       <p>Ou em 3x de {(product.value / 3).toFixed(2).replace(".", ",")}</p>
       <Button
         onClick={() => {
-          addProductCart(product);
+          addProductCart(product, product.id);
           setCartIsOpen("0");
         }}
       >

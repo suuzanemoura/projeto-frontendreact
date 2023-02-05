@@ -21,6 +21,7 @@ export const SidebarCart = styled.div`
 export const HeaderCart = styled.header`
   display: flex;
   gap: 1rem;
+  align-items: center;
 
   h2 {
     font-family: "Barriecito", cursive;
@@ -39,7 +40,7 @@ export const CloseIcon = styled(IoIosClose)`
 `;
 
 export const EmptyCart = styled.div`
-  display: ${(props) => (props.cartProducts.length === 0 ? "flex" : "none")};
+  display: ${(props) => (props.cart.length === 0 ? "flex" : "none")};
   flex-direction: column;
   width: 100%;
   height: 90%;
@@ -64,7 +65,7 @@ export const Astronaut = styled.img`
 `;
 
 export const CartWithItens = styled.div`
-  display: ${(props) => (props.cartProducts.length === 0 ? "none" : "flex")};
+  display: ${(props) => (props.cart.length === 0 ? "none" : "flex")};
   flex-direction: column;
   margin-top: 1rem;
   padding: 1rem;
