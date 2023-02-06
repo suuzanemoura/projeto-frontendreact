@@ -7,4 +7,7 @@ export const HeaderContainer = styled.header`
   width: 100%;
   height: 6rem;
   padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 `;

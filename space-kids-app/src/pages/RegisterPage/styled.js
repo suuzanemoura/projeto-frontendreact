@@ -51,6 +51,10 @@ export const Input = styled.input`
   background-color: rgba(76, 73, 74, 0.1);
   border-radius: 6px;
   border: none;
+
+  :focus {
+    outline: 0;
+  }
 `;
 
 export const EyeIcon = styled(AiOutlineEye)`

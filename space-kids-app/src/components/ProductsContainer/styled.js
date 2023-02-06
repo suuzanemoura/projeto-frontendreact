@@ -4,12 +4,15 @@ export const ShowProducts = styled.section`
   display: flex;
   width: 100%;
   padding: 1rem 2rem 2rem 1rem;
+  gap: 2rem;
 `;
 
 export const ListProducts = styled.section`
   display: flex;
   flex-wrap: wrap;
   width: 85vw;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const HeaderList = styled.header`
@@ -34,15 +37,32 @@ export const HeaderInfos = styled.div`
 `;
 
 export const Products = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 1rem;
-  width: 100%;
-  gap: 3rem 2.5rem;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.1rem;
+  max-width: 2180px;
+  margin-bottom: 3rem;
+  align-items: center;
+  justify-content: center;
 
-  ::after {
-    content: "";
-    flex: 1;
+  @media screen and (min-width: 1780px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media screen and (min-width: 2180px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media screen and (max-width: 1440px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 1130px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
   }
 `;
