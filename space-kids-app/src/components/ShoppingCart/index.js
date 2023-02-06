@@ -40,7 +40,7 @@ const ShoppingCart = ({
           <TotalAmount>
             <h1>Total:</h1> <h1>R${total.toFixed(2).replace(".", ",")}</h1>
           </TotalAmount>
-          <Button>Finalizar compra</Button>
+          <Button type="button">Finalizar compra</Button>
           <p onClick={() => setCartIsOpen("-100%")}>Ver mais produtos</p>
         </CartWithItens>
       </SidebarCart>

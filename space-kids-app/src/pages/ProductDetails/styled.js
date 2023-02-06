@@ -1,43 +1,49 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+  padding: 0 2rem;
+  scroll-margin-inline-start: initial;
+`;
+
 export const Card = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 17rem;
-  height: 27.5rem;
+  width: 75rem;
   justify-content: space-between;
-  align-items: left;
-  border: #67568c 1px solid;
   border-radius: 1.5rem;
   padding: 1rem;
+  gap: 4rem;
+`;
+
+export const ProductInfos = styled.div`
+  width: 40rem;
   color: #301e4e;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
   h1 {
     color: #ff6e6c;
-    font-size: 2rem;
-    line-height: 2rem;
-    margin-top: 0.35rem;
+    font-size: 3rem;
+    line-height: 1rem;
+    margin-top: 1rem;
   }
 
   h2 {
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    line-height: 1.3rem;
-    cursor: pointer;
-    color: #301e4e;
-
-    :hover {
-      color: #67568c;
-    }
+    font-size: 2.7rem;
+    line-height: 3.2rem;
   }
 `;
 
 export const ProductImage = styled.img`
-  width: 15rem;
-  height: 15rem;
+  width: 30rem;
+  height: 30rem;
   object-fit: contain;
-  border-radius: 1rem 1rem 0 0;
-  cursor: pointer;
+  border-radius: 1rem;
 `;
 
 export const Button = styled.button`

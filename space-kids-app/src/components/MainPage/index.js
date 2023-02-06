@@ -5,6 +5,7 @@ import CategoryPage from "../../pages/CategoryPage";
 import Contact from "../../pages/ContactPage";
 import Login from "../../pages/LoginPage";
 import Register from "../../pages/RegisterPage";
+import ProductDetails from "../../pages/ProductDetails";
 
 import { Main } from "./styled";
 
@@ -20,9 +21,28 @@ const MainPage = ({
   ordination,
   setOrdination,
   newArrayProducts,
+  addProductCart,
+  setCartIsOpen,
+  productDetail,
 }) => {
   //FUNÇÃO PARA MUDANÇA DE TELA
+
+  console.log(screen);
+
   const showScreen = () => {
+    if (
+      screen === 1 ||
+      screen === 2 ||
+      screen === 3 ||
+      screen === 4 ||
+      screen === 5 ||
+      screen === 6
+    ) {
+      window.scrollTo({
+        top: 0,
+      });
+    }
+
     switch (screen) {
       case 1:
         return (
@@ -58,6 +78,14 @@ const MainPage = ({
         return <Login handleScreen={handleScreen} />;
       case 5:
         return <Register handleScreen={handleScreen} />;
+      case 6:
+        return (
+          <ProductDetails
+            addProductCart={addProductCart}
+            setCartIsOpen={setCartIsOpen}
+            productDetail={productDetail}
+          />
+        );
       default:
         return "Página não encontrada!";
     }

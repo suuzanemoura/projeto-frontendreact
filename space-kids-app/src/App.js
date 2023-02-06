@@ -73,6 +73,9 @@ const App = () => {
     }
   }, [cart]);
 
+  //ESTADO PARA PAGE PRODUCT DETAIL
+  const [productDetail, setProductDetail] = useState("");
+
   //FUNÇÃO PARA BUSCA PELO INPUT USANDO ENTER
   const handleSearchByEnter = (e) => {
     if (e.key === "Enter") {
@@ -111,6 +114,11 @@ const App = () => {
     return product.category === "Brinquedos";
   });
 
+  //FUNÇÃO PARA ADICIONAR PRODUTO PAGE PRODUCT DETAILS
+  const addProductToDetails = (product) => {
+    setProductDetail(product);
+  };
+
   //FUNÇÃO PARA RENDERIZAR PRODUTOS COM ORDENAÇÃO
   const productsRender = () =>
     newArrayProducts
@@ -135,6 +143,8 @@ const App = () => {
             product={product}
             addProductCart={addProductCart}
             setCartIsOpen={setCartIsOpen}
+            handleScreen={handleScreen}
+            addProductToDetails={addProductToDetails}
           />
         );
       });
@@ -245,6 +255,9 @@ const App = () => {
         ordination={ordination}
         setOrdination={setOrdination}
         newArrayProducts={newArrayProducts}
+        addProductCart={addProductCart}
+        setCartIsOpen={setCartIsOpen}
+        productDetail={productDetail}
       />
       <Footer
         handleArrayProducts={handleArrayProducts}
