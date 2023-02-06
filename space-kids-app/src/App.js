@@ -48,9 +48,7 @@ const App = () => {
   const [cartIsOpen, setCartIsOpen] = useState("-100%");
 
   //ESTADO PARA PRODUTOS NO CARRINHO
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("items")) || []
-  );
+  const [cart, setCart] = useState([]);
 
   //ESTADO PARA VALOR TOTAL DO CARRINHO
   const [total, setTotal] = useState(0);
@@ -210,10 +208,19 @@ const App = () => {
       );
     });
 
-  //SALVAR CARRINHO COM LOCALSTORAGE
+  //SALVAR E ACESSAR CARRINHO COM LOCALSTORAGE
   useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(cart));
+    if (cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
   }, [cart]);
+
+  useEffect(() => {
+    const cartStorage = JSON.parse(localStorage.getItem("cart"));
+    if (cartStorage) {
+      setCart(cartStorage);
+    }
+  }, []);
 
   return (
     <Container>
@@ -237,9 +244,11 @@ const App = () => {
         itemAmount={itemAmount}
       />
       <ShoppingCart
+        handleScreen={handleScreen}
         cartIsOpen={cartIsOpen}
         setCartIsOpen={setCartIsOpen}
         cart={cart}
+        setCart={setCart}
         cartItemRender={cartItemRender}
         total={total}
       />

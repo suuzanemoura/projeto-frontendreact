@@ -6,6 +6,7 @@ import Contact from "../../pages/ContactPage";
 import Login from "../../pages/LoginPage";
 import Register from "../../pages/RegisterPage";
 import ProductDetails from "../../pages/ProductDetails";
+import Purchased from "../../pages/Purchased";
 
 import { Main } from "./styled";
 
@@ -27,16 +28,14 @@ const MainPage = ({
 }) => {
   //FUNÇÃO PARA MUDANÇA DE TELA
 
-  console.log(screen);
-
   const showScreen = () => {
     if (
-      screen === 1 ||
       screen === 2 ||
       screen === 3 ||
       screen === 4 ||
       screen === 5 ||
-      screen === 6
+      screen === 6 ||
+      screen === 7
     ) {
       window.scrollTo({
         top: 0,
@@ -86,6 +85,8 @@ const MainPage = ({
             productDetail={productDetail}
           />
         );
+      case 7:
+        return <Purchased />;
       default:
         return "Página não encontrada!";
     }
