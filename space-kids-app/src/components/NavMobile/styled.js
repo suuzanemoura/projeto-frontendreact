@@ -2,7 +2,7 @@ import { BsSearch } from "react-icons/bs";
 import styled from "styled-components";
 
 export const NavBar = styled.nav`
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
@@ -10,7 +10,7 @@ export const NavBar = styled.nav`
   gap: 2rem;
 
   @media screen and (max-width: 1024px) {
-    display: none;
+    display: flex;
   }
 `;
 
@@ -27,7 +27,7 @@ export const FormInput = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 25rem;
+  width: 18rem;
   height: 2.5rem;
   padding: 1rem 2.5rem 1rem 1rem;
   background-color: rgba(76, 73, 74, 0.1);
