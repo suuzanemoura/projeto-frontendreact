@@ -12,6 +12,10 @@ export const Card = styled.div`
   padding: 1rem;
   color: #301e4e;
 
+  @media screen and (max-width: 319px) {
+    width: 15rem;
+  }
+
   h1 {
     color: #ff6e6c;
     font-size: 2rem;
@@ -38,6 +42,11 @@ export const ProductImage = styled.img`
   object-fit: contain;
   border-radius: 1rem 1rem 0 0;
   cursor: pointer;
+
+  @media screen and (max-width: 319px) {
+    width: 13rem;
+    height: 13rem;
+  }
 `;
 
 export const Button = styled.button`

@@ -16,6 +16,12 @@ export const InfoStore = styled.div`
   justify-content: space-evenly;
   padding: 4rem 10rem 2rem 10rem;
   width: 100%;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 2rem 1rem 2rem;
+  }
 `;
 
 export const NavBar = styled.nav`
@@ -25,6 +31,16 @@ export const NavBar = styled.nav`
   justify-content: right;
   align-items: center;
   gap: 5rem;
+
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  @media screen and (max-width: 425px) {
+    gap: 2rem;
+    flex-direction: column;
+  }
 `;
 
 export const LogoDiv = styled.img`
@@ -39,16 +55,27 @@ export const OptionsList = styled.ul`
   height: 100%;
   align-items: left;
 
+  @media screen and (max-width: 1024px) {
+    align-items: center;
+  }
+
   p {
     color: #fff;
     text-transform: uppercase;
     text-decoration: 0.2rem solid underline #ff6e6c;
     text-underline-offset: 0.5rem;
     margin-bottom: 1rem;
+
+    @media screen and (max-width: 425px) {
+      font-size: 0.8rem;
+    }
   }
 
   li {
     color: #fff;
+    @media screen and (max-width: 425px) {
+      font-size: 0.8rem;
+    }
   }
 
   li:hover {
@@ -66,6 +93,7 @@ export const Copyright = styled.div`
   padding: 1rem 1rem;
   width: 100%;
   background-color: #4c346b;
+  text-align: center;
 
   p {
     font-size: 0.75rem;

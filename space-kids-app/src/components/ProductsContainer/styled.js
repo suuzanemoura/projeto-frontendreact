@@ -5,6 +5,14 @@ export const ShowProducts = styled.section`
   width: 100%;
   padding: 1rem 2rem 2rem 1rem;
   gap: 2rem;
+
+  @media screen and (max-width: 1080px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 0;
+  }
 `;
 
 export const ListProducts = styled.section`
@@ -13,6 +21,10 @@ export const ListProducts = styled.section`
   width: 85vw;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 1080px) {
+    width: 75vw;
+  }
 `;
 
 export const HeaderList = styled.header`
@@ -20,19 +32,48 @@ export const HeaderList = styled.header`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const HeaderInfos = styled.div`
+  display: flex;
+  flex-direction: column;
+
   h2 {
     color: #301e4e;
     font-family: "Barrio", cursive;
     text-decoration: 0.2rem solid underline #ff6e6c;
     text-underline-offset: 0.5rem;
     margin-bottom: 1rem;
+
+    @media screen and (max-width: 580px) {
+      font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 500px) {
+      font-size: 1.2rem;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   p {
     font-size: 0.8rem;
+
+    @media screen and (max-width: 580px) {
+      font-size: 0.65rem;
+    }
+
+    @media screen and (max-width: 500px) {
+      text-align: center;
+    }
   }
 `;
 

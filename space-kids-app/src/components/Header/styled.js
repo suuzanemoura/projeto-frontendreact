@@ -10,4 +10,12 @@ export const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
   z-index: 10;
+
+  @media screen and (max-width: 468px) {
+    padding: 1rem;
+  }
+
+  @media screen and (max-width: 319px) {
+    padding: 0.5rem;
+  }
 `;

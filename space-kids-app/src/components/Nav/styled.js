@@ -9,6 +9,10 @@ export const NavBar = styled.nav`
   align-items: center;
   gap: 2rem;
 
+  @media screen and (max-width: 1280px) {
+    gap: 1rem;
+  }
+
   @media screen and (max-width: 1024px) {
     display: none;
   }
@@ -18,6 +22,10 @@ export const LogoDiv = styled.img`
   width: 15rem;
   height: 100%;
   cursor: pointer;
+
+  @media screen and (max-width: 1280px) {
+    width: 10rem;
+  }
 `;
 
 export const FormInput = styled.div`
@@ -27,7 +35,7 @@ export const FormInput = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 25rem;
+  width: 18rem;
   height: 2.5rem;
   padding: 1rem 2.5rem 1rem 1rem;
   background-color: rgba(76, 73, 74, 0.1);
@@ -36,6 +44,14 @@ export const Input = styled.input`
 
   :focus {
     outline: 0;
+  }
+
+  @media screen and (min-width: 1920px) {
+    width: 30rem;
+  }
+
+  @media screen and (max-width: 1280px) {
+    width: 12rem;
   }
 `;
 
@@ -59,6 +75,10 @@ export const OptionsList = styled.ul`
   li:hover {
     color: #ff6e6c;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 1280px) {
+    gap: 1rem;
   }
 `;
 
