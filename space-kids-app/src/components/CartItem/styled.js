@@ -12,7 +12,17 @@ export const Card = styled.div`
 
   h4 {
     color: #ff6e6c;
-    font-size: 1rem;
+    font-size: 1.35rem;
+
+    @media screen and (max-width: 450px) {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    @media screen and (max-width: 375px) {
+      font-size: 0.8rem;
+      padding: 0.25rem;
+    }
   }
 `;
 
@@ -21,6 +31,16 @@ export const ProductImage = styled.img`
   height: 6rem;
   object-fit: contain;
   border-radius: 1rem;
+
+  @media screen and (max-width: 450px) {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  @media screen and (max-width: 319px) {
+    width: 3rem;
+    height: 3rem;
+  }
 `;
 
 export const CardInfos = styled.div`
@@ -28,6 +48,11 @@ export const CardInfos = styled.div`
   flex-direction: column;
   gap: 0.75rem;
   padding-left: 0.75rem;
+
+  @media screen and (max-width: 450px) {
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+  }
 `;
 
 export const NameItem = styled.div`
@@ -36,10 +61,18 @@ export const NameItem = styled.div`
   h5 {
     width: 75%;
   }
+
+  @media screen and (max-width: 450px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const TrashIcon = styled(IoTrashOutline)`
   font-size: 1.5rem;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1rem;
+  }
 `;
 
 export const ValueItem = styled.div`
@@ -55,16 +88,37 @@ export const Quantity = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 450px) {
+    width: 4.5rem;
+    height: 1.8rem;
+    font-size: 0.7rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    width: 3.5rem;
+    height: 1.5rem;
+  }
+
+  @media screen and (max-width: 319px) {
+    width: 3rem;
+  }
 `;
 
 export const AddIcon = styled(IoAddOutline)`
   :hover {
     color: #ff6e6c;
   }
+  @media screen and (max-width: 450px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const RemoveIcon = styled(IoRemoveOutline)`
   :hover {
     color: #ff6e6c;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 0.75rem;
   }
 `;

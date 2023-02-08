@@ -16,6 +16,23 @@ export const SidebarCart = styled.div`
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.55);
   color: #1f1235;
   padding: 1.5rem;
+
+  @media screen and (max-width: 1440px) {
+    width: 35vw;
+  }
+
+  @media screen and (max-width: 1280px) {
+    width: 40vw;
+  }
+
+  @media screen and (max-width: 1080px) {
+    width: 55vw;
+  }
+
+  @media screen and (max-width: 780px) {
+    width: 100vw;
+    padding: 1.5rem 1rem 1rem 1.5rem;
+  }
 `;
 
 export const HeaderCart = styled.header`
@@ -28,6 +45,14 @@ export const HeaderCart = styled.header`
     text-transform: uppercase;
     text-decoration: 0.2rem solid underline #ff6e6c;
     text-underline-offset: 0.4rem;
+
+    @media screen and (max-width: 350px) {
+      font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 319px) {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -57,6 +82,11 @@ export const EmptyCart = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 420px) {
+      width: 90%;
+      font-size: 0.75rem;
+    }
   }
 `;
 
@@ -88,6 +118,14 @@ export const CartItens = styled.div`
   margin-top: 1rem;
   overflow-y: auto;
   height: 74%;
+
+  @media screen and (max-width: 780px) {
+    padding: 0;
+  }
+
+  @media screen and (max-width: 450px) {
+    height: 65%;
+  }
 `;
 
 export const TotalAmount = styled.div`
@@ -95,6 +133,12 @@ export const TotalAmount = styled.div`
   width: 100%;
   justify-content: space-between;
   margin-top: 0.5rem;
+
+  @media screen and (max-width: 319px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 export const Button = styled.button`
@@ -117,5 +161,9 @@ export const Button = styled.button`
 
   :active {
     background-color: #67568c;
+  }
+
+  @media screen and (max-width: 319px) {
+    font-size: 0.7rem;
   }
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, FiltersContainer, Input } from "./styled";
+import { Button, FilterList, FiltersContainer, Input } from "./styled";
 
 const Filters = ({
   lowestPrice,
