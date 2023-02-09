@@ -26,7 +26,7 @@ const ShoppingCart = ({
     <div>
       <SidebarCart cartIsOpen={cartIsOpen}>
         <HeaderCart>
-          <CloseIcon onClick={() => setCartIsOpen("-100%")} />
+          <CloseIcon onClick={() => setCartIsOpen("-120%")} />
           <h2>Carrinho de Compras</h2>
         </HeaderCart>
         <EmptyCart cart={cart}>
@@ -46,13 +46,13 @@ const ShoppingCart = ({
             type="button"
             onClick={() => {
               handleScreen(7);
-              setCartIsOpen("-100%");
+              setCartIsOpen("-120%");
               setCart([]);
             }}
           >
             Finalizar compra
           </Button>
-          <p onClick={() => setCartIsOpen("-100%")}>Ver mais produtos</p>
+          <p onClick={() => setCartIsOpen("-120%")}>Ver mais produtos</p>
         </CartWithItens>
       </SidebarCart>
 

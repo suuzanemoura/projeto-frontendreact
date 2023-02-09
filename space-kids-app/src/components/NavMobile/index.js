@@ -1,10 +1,9 @@
 import React from "react";
 import Logo from "../../assets/imgs/SpaceKids_Logo.svg";
-import { FiShoppingBag, FiUser } from "react-icons/fi";
+import { FiShoppingBag, FiMenu } from "react-icons/fi";
 import {
   LogoDiv,
   NavBar,
-  OptionsList,
   Icons,
   Icon,
   Input,
@@ -17,9 +16,6 @@ const NavMobile = ({
   handleArrayProducts,
   handleScreen,
   handleTitleCategory,
-  accessoriesCategory,
-  cushionsCategory,
-  toysCategory,
   search,
   setSearch,
   handleSearch,
@@ -29,6 +25,7 @@ const NavMobile = ({
   setOrdination,
   setCartIsOpen,
   itemAmount,
+  setMenuMobileIsOpen,
 }) => {
   return (
     <NavBar>
@@ -75,16 +72,12 @@ const NavMobile = ({
       </FormInput>
 
       <Icons>
-        <Icon
-          onClick={() => {
-            handleScreen(4);
-          }}
-        >
-          <FiUser />
-        </Icon>
         <Icon onClick={() => setCartIsOpen("0")}>
           <FiShoppingBag />
           <p>{itemAmount}</p>
+        </Icon>
+        <Icon>
+          <FiMenu onClick={() => setMenuMobileIsOpen("0")} />
         </Icon>
       </Icons>
     </NavBar>

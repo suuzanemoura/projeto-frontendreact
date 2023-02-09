@@ -61,6 +61,7 @@ export const HeaderInfos = styled.div`
       font-size: 1.2rem;
       justify-content: center;
       align-items: center;
+      text-align: center;
     }
   }
 

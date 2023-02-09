@@ -21,12 +21,24 @@ export const RegisterContainer = styled.section`
     text-underline-offset: 0.5rem;
     margin-bottom: 1rem;
     font-size: 3rem;
+
+    @media screen and (max-width: 375px) {
+      font-size: 2rem;
+    }
   }
 
   > p {
     font-size: 0.8rem;
     margin-bottom: 1rem;
     color: #ff6e6c;
+  }
+
+  @media screen and (max-width: 560px) {
+    width: 20rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    width: 15rem;
   }
 `;
 
@@ -54,6 +66,14 @@ export const Input = styled.input`
 
   :focus {
     outline: 0;
+  }
+
+  @media screen and (max-width: 560px) {
+    width: 20rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    width: 15rem;
   }
 `;
 

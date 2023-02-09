@@ -32,6 +32,7 @@ export const SidebarCart = styled.div`
   @media screen and (max-width: 780px) {
     width: 100vw;
     padding: 1.5rem 1rem 1rem 1.5rem;
+    border-radius: 0;
   }
 `;
 

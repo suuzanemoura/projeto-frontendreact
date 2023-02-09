@@ -20,6 +20,7 @@ const Header = ({
   setOrdination,
   setCartIsOpen,
   itemAmount,
+  setMenuMobileIsOpen,
 }) => {
   return (
     <HeaderContainer>
@@ -58,6 +59,8 @@ const Header = ({
         setOrdination={setOrdination}
         setCartIsOpen={setCartIsOpen}
         itemAmount={itemAmount}
+        menuMobileIsOpen={setMenuMobileIsOpen}
+        setMenuMobileIsOpen={setMenuMobileIsOpen}
       />
     </HeaderContainer>
   );
