@@ -20,6 +20,21 @@ export const ContactContainer = styled.section`
     text-underline-offset: 0.5rem;
     margin-bottom: 1rem;
     font-size: 3rem;
+
+    @media screen and (max-width: 540px) {
+      font-size: 2rem;
+    }
+
+    @media screen and (max-width: 375px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    width: 20rem;
+  }
+  @media screen and (max-width: 375px) {
+    width: 15rem;
   }
 `;
 
@@ -48,6 +63,12 @@ export const Input = styled.input`
   :focus {
     outline: 0;
   }
+  @media screen and (max-width: 540px) {
+    width: 20rem;
+  }
+  @media screen and (max-width: 375px) {
+    width: 15rem;
+  }
 `;
 
 export const TextArea = styled.textarea`
@@ -59,6 +80,14 @@ export const TextArea = styled.textarea`
 
   :focus {
     outline: 0;
+  }
+
+  @media screen and (max-width: 540px) {
+    width: 20rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    width: 15rem;
   }
 `;
 

@@ -21,10 +21,27 @@ export const LilacBox = styled.div`
   gap: 1rem;
   color: #301e4e;
 
+  @media screen and (max-width: 480px) {
+    width: 25rem;
+    padding: 2rem 2rem;
+  }
+
   h2 {
     text-transform: uppercase;
     font-size: 1.4rem;
     line-height: 2rem;
+
+    @media screen and (max-width: 319px) {
+      font-size: 1rem;
+      line-height: 1.4rem;
+    }
+  }
+
+  p {
+    @media screen and (max-width: 319px) {
+      font-size: 0.85rem;
+      line-height: 1rem;
+    }
   }
 `;
 
@@ -35,4 +52,8 @@ export const CheckIcon = styled(AiFillCheckCircle)`
 
 export const Astronaut = styled.img`
   width: 15rem;
+
+  @media screen and (max-width: 480px) {
+    width: 10rem;
+  }
 `;

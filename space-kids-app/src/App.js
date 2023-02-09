@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { GlobalStyled } from "./GlobalStyle";
 import styled from "styled-components";
 
-//import components
 import Header from "./components/Header";
+import MenuMobile from "./components/MenuMobile";
 import MainPage from "./components/MainPage";
 import ProductCard from "./components/ProductCard";
 import ShoppingCart from "./components/ShoppingCart";
 import Footer from "./components/Footer";
 
-//import products
 import { products } from "./assets/products.js";
 import CartItem from "./components/CartItem";
 
@@ -21,62 +20,29 @@ const Container = styled.div`
 `;
 
 const App = () => {
-  //ESTADO PARA MUDANÇA DE TELA
   const [screen, setScreen] = useState(1);
-  const handleScreen = (number) => setScreen(number);
-
-  //ESTADO PARA TÍTULO CATEGORYPAGE
   const [titleCategory, setTitleCategory] = useState("Produtos");
-  const handleTitleCategory = (title) => setTitleCategory(title);
-
-  //ESTADO ARRAY DE PRODUTOS
   const [arrayProducts, setArrayProducts] = useState(products);
-  const handleArrayProducts = (array) => setArrayProducts(array);
+  const [productDetail, setProductDetail] = useState("");
 
-  //ESTADO PARA OS FILTROS
   const [lowestPrice, setLowestPrice] = useState(0);
   const [biggestPrice, setBiggestPrice] = useState(1000);
   const [ordination, setOrdination] = useState("");
-
-  //ESTADO PARA BUSCA PELO INPUT
   const [search, setSearch] = useState("");
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
 
-  //ESTADO PARA ABRIR E FECHAR CARRINHO
-  const [cartIsOpen, setCartIsOpen] = useState("-100%");
-
-  //ESTADO PARA PRODUTOS NO CARRINHO
+  const [cartIsOpen, setCartIsOpen] = useState("-120%");
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("items")) || []
   );
-
-  //ESTADO PARA VALOR TOTAL DO CARRINHO
   const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    const totalAmount = cart.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.value * currentItem.amount;
-    }, 0);
-    setTotal(totalAmount);
-  }, [cart]);
-
-  //ESTADO PARA TOTAL DE ITENS DO CARRINHO
   const [itemAmount, setItemAmount] = useState(0);
-  useEffect(() => {
-    if (cart) {
-      const amount = cart.reduce((accumulator, currentItem) => {
-        return accumulator + currentItem.amount;
-      }, 0);
-      setItemAmount(amount);
-    }
-  }, [cart]);
 
-  //ESTADO PARA PAGE PRODUCT DETAIL
-  const [productDetail, setProductDetail] = useState("");
+  const [menuMobileIsOpen, setMenuMobileIsOpen] = useState("-120%");
 
-  //FUNÇÃO PARA BUSCA PELO INPUT USANDO ENTER
+  const handleScreen = (number) => setScreen(number);
+  const handleTitleCategory = (title) => setTitleCategory(title);
+  const handleArrayProducts = (array) => setArrayProducts(array);
+  const handleSearch = (e) => setSearch(e.target.value);
   const handleSearchByEnter = (e) => {
     if (e.key === "Enter") {
       setSearch(e.target.value);
@@ -94,14 +60,32 @@ const App = () => {
     }
   };
 
-  //ARRAY ATUALIZADO COM FILTRO DE PREÇO
+  useEffect(() => {
+    const totalAmount = cart.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.value * currentItem.amount;
+    }, 0);
+    setTotal(totalAmount);
+  }, [cart]);
+
+  useEffect(() => {
+    if (cart) {
+      const amount = cart.reduce((accumulator, currentItem) => {
+        return accumulator + currentItem.amount;
+      }, 0);
+      setItemAmount(amount);
+    }
+  }, [cart]);
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(cart));
+  }, [cart]);
+
   const newArrayProducts = [
     ...arrayProducts.filter((product) => {
       return product.value <= biggestPrice && product.value >= lowestPrice;
     }),
   ];
 
-  //FUNÇÃO PARA FILTRAR AS CATEGORIAS PARA HEADER E FOOTER
   const accessoriesCategory = products.filter((product) => {
     return product.category === "Acessórios";
   });
@@ -114,12 +98,10 @@ const App = () => {
     return product.category === "Brinquedos";
   });
 
-  //FUNÇÃO PARA ADICIONAR PRODUTO PAGE PRODUCT DETAILS
   const addProductToDetails = (product) => {
     setProductDetail(product);
   };
 
-  //FUNÇÃO PARA RENDERIZAR PRODUTOS COM ORDENAÇÃO
   const productsRender = () =>
     newArrayProducts
       .sort((a, b) => {
@@ -149,11 +131,9 @@ const App = () => {
         );
       });
 
-  //FUNÇÃO PARA ADICIONAR PRODUTO NO CARRINHO
   const addProductCart = (product, id) => {
     const newItem = { ...product, amount: 1 };
 
-    //checar se o produto já existe no carrinho
     const cartItem = cart.find((item) => {
       return item.id === id;
     });
@@ -172,13 +152,11 @@ const App = () => {
     }
   };
 
-  //FUNÇÃO PARA REMOVER PRODUTO NO CARRINHO
   const removeCartProduct = (product) => {
     const filteredList = cart.filter((item) => item !== product);
     setCart(filteredList);
   };
 
-  //FUNÇÃO PARA DIMINUIR QUANTIDADE DE PRODUTO NO CARRINHO
   const removeCartItem = (product) => {
     if (product.amount > 1) {
       const newCart = cart.map((item) => {
@@ -196,7 +174,6 @@ const App = () => {
     }
   };
 
-  //FUNÇÃO PARA RENDERIZAR PRODUTOS NO CARRINHO
   const cartItemRender = () =>
     cart.map((product) => {
       return (
@@ -209,11 +186,6 @@ const App = () => {
         />
       );
     });
-
-  //SALVAR ACESSAR CARRINHO COM LOCALSTORAGE
-  useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(cart));
-  }, [cart]);
 
   return (
     <Container>
@@ -235,6 +207,7 @@ const App = () => {
         setOrdination={setOrdination}
         setCartIsOpen={setCartIsOpen}
         itemAmount={itemAmount}
+        setMenuMobileIsOpen={setMenuMobileIsOpen}
       />
       <ShoppingCart
         handleScreen={handleScreen}
@@ -244,6 +217,20 @@ const App = () => {
         setCart={setCart}
         cartItemRender={cartItemRender}
         total={total}
+      />
+      <MenuMobile
+        products={products}
+        handleArrayProducts={handleArrayProducts}
+        handleScreen={handleScreen}
+        handleTitleCategory={handleTitleCategory}
+        accessoriesCategory={accessoriesCategory}
+        cushionsCategory={cushionsCategory}
+        toysCategory={toysCategory}
+        setLowestPrice={setLowestPrice}
+        setBiggestPrice={setBiggestPrice}
+        setOrdination={setOrdination}
+        menuMobileIsOpen={menuMobileIsOpen}
+        setMenuMobileIsOpen={setMenuMobileIsOpen}
       />
       <MainPage
         screen={screen}

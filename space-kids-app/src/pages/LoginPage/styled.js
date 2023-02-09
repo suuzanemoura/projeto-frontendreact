@@ -22,6 +22,18 @@ export const LoginContainer = styled.section`
     text-underline-offset: 0.5rem;
     margin-bottom: 2rem;
     font-size: 3rem;
+
+    @media screen and (max-width: 375px) {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 20rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    width: 15rem;
   }
 `;
 
@@ -49,6 +61,14 @@ export const Input = styled.input`
 
   :focus {
     outline: 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 20rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    width: 15rem;
   }
 `;
 

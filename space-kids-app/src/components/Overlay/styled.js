@@ -8,6 +8,15 @@ export const OverlayContainer = styled.div`
   height: 100%;
   background: #00000047;
   z-index: 10000;
-  cursor: pointer;
-  display: ${(props) => (props.cartIsOpen === "-100%" ? "none;" : "block;")};
+  transition: all 0.3s ease 0s;
+  cursor: default;
+  visibility: visible;
+  display: ${(props) =>
+    props.cartIsOpen === "-120%" || props.menuMobileIsOpen === "-120%"
+      ? "none;"
+      : "block;"};
+
+  @media screen and (max-width: 780px) {
+    display: none;
+  }
 `;

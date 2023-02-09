@@ -74,23 +74,6 @@ export const SearchIcon = styled(BsSearch)`
   }
 `;
 
-export const OptionsList = styled.ul`
-  display: flex;
-  list-style-type: none;
-  height: 100%;
-  align-items: center;
-  gap: 2rem;
-
-  li {
-    color: #1f1235;
-  }
-
-  li:hover {
-    color: #ff6e6c;
-    cursor: pointer;
-  }
-`;
-
 export const Icons = styled.div`
   display: flex;
   justify-content: center;
