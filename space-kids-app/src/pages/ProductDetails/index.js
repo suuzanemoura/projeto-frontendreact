@@ -1,38 +1,98 @@
 import React from "react";
-import { Button, Card, Container, ProductImage, ProductInfos } from "./styled";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import {
+  Button,
+  Card,
+  Container,
+  Main,
+  ProductImage,
+  ProductInfos,
+} from "./styled";
 import { FiShoppingBag } from "react-icons/fi";
 
-const ProductDetails = ({ productDetail, addProductCart, setCartIsOpen }) => {
+const ProductDetails = ({
+  products,
+  handleArrayProducts,
+  handleScreen,
+  handleTitleCategory,
+  accessoriesCategory,
+  cushionsCategory,
+  toysCategory,
+  search,
+  setSearch,
+  handleSearch,
+  setLowestPrice,
+  setBiggestPrice,
+  setOrdination,
+  setCartIsOpen,
+  itemAmount,
+  setMenuMobileIsOpen,
+  productDetail,
+  addProductCart,
+}) => {
   return (
     <Container>
-      <Card key={productDetail.key}>
-        <ProductInfos>
-          <h2>{productDetail.name}</h2>
-          <h1>R$ {productDetail.value.toFixed(2).replace(".", ",")}</h1>
-          <h4>
-            Ou em 3x de {(productDetail.value / 3).toFixed(2).replace(".", ",")}
-          </h4>
-          <p>{productDetail.description}</p>
-          <small>
-            <strong>Tamanho:</strong> {productDetail.measure}
-          </small>
-          <small>
-            <strong>Categoria:</strong> {productDetail.category}
-          </small>
-          <Button
-            onClick={() => {
-              addProductCart(productDetail, productDetail.id);
-              setCartIsOpen("0");
-            }}
-          >
-            <FiShoppingBag /> Adicionar
-          </Button>
-        </ProductInfos>
-        <ProductImage
-          src={productDetail.imageUrl}
-          alt={productDetail.imageAlt}
-        />
-      </Card>
+      <Header
+        products={products}
+        handleArrayProducts={handleArrayProducts}
+        handleScreen={handleScreen}
+        handleTitleCategory={handleTitleCategory}
+        accessoriesCategory={accessoriesCategory}
+        cushionsCategory={cushionsCategory}
+        toysCategory={toysCategory}
+        search={search}
+        setSearch={setSearch}
+        handleSearch={handleSearch}
+        setLowestPrice={setLowestPrice}
+        setBiggestPrice={setBiggestPrice}
+        setOrdination={setOrdination}
+        setCartIsOpen={setCartIsOpen}
+        itemAmount={itemAmount}
+        setMenuMobileIsOpen={setMenuMobileIsOpen}
+      />
+      <Main>
+        <Card key={productDetail.key}>
+          <ProductInfos>
+            <h2>{productDetail.name}</h2>
+            <h1>R$ {productDetail.value.toFixed(2).replace(".", ",")}</h1>
+            <h4>
+              Ou em 3x de{" "}
+              {(productDetail.value / 3).toFixed(2).replace(".", ",")}
+            </h4>
+            <p>{productDetail.description}</p>
+            <small>
+              <strong>Tamanho:</strong> {productDetail.measure}
+            </small>
+            <small>
+              <strong>Categoria:</strong> {productDetail.category}
+            </small>
+            <Button
+              onClick={() => {
+                addProductCart(productDetail, productDetail.id);
+                setCartIsOpen("0");
+              }}
+            >
+              <FiShoppingBag /> Adicionar
+            </Button>
+          </ProductInfos>
+          <ProductImage
+            src={productDetail.imageUrl}
+            alt={productDetail.imageAlt}
+          />
+        </Card>
+      </Main>
+      <Footer
+        handleArrayProducts={handleArrayProducts}
+        handleScreen={handleScreen}
+        handleTitleCategory={handleTitleCategory}
+        accessoriesCategory={accessoriesCategory}
+        cushionsCategory={cushionsCategory}
+        toysCategory={toysCategory}
+        setLowestPrice={setLowestPrice}
+        setBiggestPrice={setBiggestPrice}
+        setOrdination={setOrdination}
+      />
     </Container>
   );
 };

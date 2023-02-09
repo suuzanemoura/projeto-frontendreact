@@ -59,6 +59,7 @@ export const HeaderInfos = styled.div`
 
     @media screen and (max-width: 500px) {
       font-size: 1.2rem;
+      line-height: 2.2rem;
       justify-content: center;
       align-items: center;
       text-align: center;

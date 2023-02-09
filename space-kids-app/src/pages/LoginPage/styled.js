@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 
+export const LoginContainer = styled.div`
+  width: 100%;
+`;
+
 export const Main = styled.main`
   width: 100%;
   height: 38rem;
@@ -10,7 +14,7 @@ export const Main = styled.main`
   align-items: center;
 `;
 
-export const LoginContainer = styled.section`
+export const LoginSection = styled.section`
   width: 25rem;
   height: 22rem;
 

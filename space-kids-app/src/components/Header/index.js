@@ -14,7 +14,6 @@ const Header = ({
   search,
   setSearch,
   handleSearch,
-  handleSearchByEnter,
   setLowestPrice,
   setBiggestPrice,
   setOrdination,
@@ -22,6 +21,21 @@ const Header = ({
   itemAmount,
   setMenuMobileIsOpen,
 }) => {
+  const filteredProductsBySearch = products.filter((product) => {
+    return product.name.toLowerCase().includes(search.toLowerCase());
+  });
+
+  const searchByEnter = (e) => {
+    if (e.key === "Enter") {
+      handleArrayProducts(filteredProductsBySearch);
+      handleTitleCategory("Resultado da pesquisa");
+      handleScreen(2);
+      setSearch("");
+      setLowestPrice(0);
+      setBiggestPrice(1000);
+      setOrdination("");
+    }
+  };
   return (
     <HeaderContainer>
       <Nav
@@ -33,9 +47,10 @@ const Header = ({
         cushionsCategory={cushionsCategory}
         toysCategory={toysCategory}
         search={search}
+        filteredProductsBySearch={filteredProductsBySearch}
         setSearch={setSearch}
         handleSearch={handleSearch}
-        handleSearchByEnter={handleSearchByEnter}
+        searchByEnter={searchByEnter}
         setLowestPrice={setLowestPrice}
         setBiggestPrice={setBiggestPrice}
         setOrdination={setOrdination}
@@ -47,19 +62,16 @@ const Header = ({
         handleArrayProducts={handleArrayProducts}
         handleScreen={handleScreen}
         handleTitleCategory={handleTitleCategory}
-        accessoriesCategory={accessoriesCategory}
-        cushionsCategory={cushionsCategory}
-        toysCategory={toysCategory}
         search={search}
+        filteredProductsBySearch={filteredProductsBySearch}
         setSearch={setSearch}
         handleSearch={handleSearch}
-        handleSearchByEnter={handleSearchByEnter}
+        searchByEnter={searchByEnter}
         setLowestPrice={setLowestPrice}
         setBiggestPrice={setBiggestPrice}
         setOrdination={setOrdination}
         setCartIsOpen={setCartIsOpen}
         itemAmount={itemAmount}
-        menuMobileIsOpen={setMenuMobileIsOpen}
         setMenuMobileIsOpen={setMenuMobileIsOpen}
       />
     </HeaderContainer>

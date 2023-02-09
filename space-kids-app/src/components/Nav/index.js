@@ -21,9 +21,10 @@ const Nav = ({
   cushionsCategory,
   toysCategory,
   search,
+  filteredProductsBySearch,
   setSearch,
   handleSearch,
-  handleSearchByEnter,
+  searchByEnter,
   setLowestPrice,
   setBiggestPrice,
   setOrdination,
@@ -49,13 +50,7 @@ const Nav = ({
         <SearchIcon
           onClick={() => {
             handleTitleCategory("Resultado da pesquisa");
-            handleArrayProducts(
-              products.filter((product) => {
-                return product.name
-                  .toLowerCase()
-                  .includes(search.toLowerCase());
-              })
-            );
+            handleArrayProducts(filteredProductsBySearch);
             handleScreen(2);
             setSearch("");
             setLowestPrice(0);
@@ -70,7 +65,7 @@ const Nav = ({
           placeholder="Buscar"
           value={search}
           onChange={handleSearch}
-          onKeyUp={handleSearchByEnter}
+          onKeyUp={searchByEnter}
         />
       </FormInput>
 

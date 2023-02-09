@@ -2,15 +2,17 @@ import styled from "styled-components";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 
-export const Main = styled.main`
+export const RegisterContainer = styled.div`
   width: 100%;
+`;
+
+export const Main = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  scroll-behavior: auto;
 `;
 
-export const RegisterContainer = styled.section`
+export const RegisterSection = styled.section`
   width: 30rem;
   margin: 3rem;
 
@@ -45,7 +47,7 @@ export const RegisterContainer = styled.section`
 export const FormRegister = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
   position: relative;
 
   p {

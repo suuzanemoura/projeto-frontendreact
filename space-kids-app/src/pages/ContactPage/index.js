@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+
 import {
   Button,
   FormContact,
@@ -9,7 +12,24 @@ import {
   TextArea,
 } from "./styled";
 
-const Contact = () => {
+const Contact = ({
+  products,
+  handleArrayProducts,
+  handleScreen,
+  handleTitleCategory,
+  accessoriesCategory,
+  cushionsCategory,
+  toysCategory,
+  search,
+  setSearch,
+  handleSearch,
+  setLowestPrice,
+  setBiggestPrice,
+  setOrdination,
+  setCartIsOpen,
+  itemAmount,
+  setMenuMobileIsOpen,
+}) => {
   const [inputName, setInputName] = useState("");
   const [inputPhone, setInputPhone] = useState("");
   const [inputEmail, setInputEmail] = useState("");
@@ -29,8 +49,26 @@ const Contact = () => {
   };
 
   return (
-    <Main>
-      <ContactContainer>
+    <ContactContainer>
+      <Header
+        products={products}
+        handleArrayProducts={handleArrayProducts}
+        handleScreen={handleScreen}
+        handleTitleCategory={handleTitleCategory}
+        accessoriesCategory={accessoriesCategory}
+        cushionsCategory={cushionsCategory}
+        toysCategory={toysCategory}
+        search={search}
+        setSearch={setSearch}
+        handleSearch={handleSearch}
+        setLowestPrice={setLowestPrice}
+        setBiggestPrice={setBiggestPrice}
+        setOrdination={setOrdination}
+        setCartIsOpen={setCartIsOpen}
+        itemAmount={itemAmount}
+        setMenuMobileIsOpen={setMenuMobileIsOpen}
+      />
+      <Main>
         <h1>Entre em contato</h1>
 
         <FormContact>
@@ -81,8 +119,19 @@ const Contact = () => {
           </Label>
           <Button type="submit">Enviar</Button>
         </FormContact>
-      </ContactContainer>
-    </Main>
+      </Main>
+      <Footer
+        handleArrayProducts={handleArrayProducts}
+        handleScreen={handleScreen}
+        handleTitleCategory={handleTitleCategory}
+        accessoriesCategory={accessoriesCategory}
+        cushionsCategory={cushionsCategory}
+        toysCategory={toysCategory}
+        setLowestPrice={setLowestPrice}
+        setBiggestPrice={setBiggestPrice}
+        setOrdination={setOrdination}
+      />
+    </ContactContainer>
   );
 };
 

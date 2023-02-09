@@ -1,4 +1,5 @@
 import React from "react";
+import CartItem from "../CartItem";
 import {
   Astronaut,
   Button,
@@ -19,9 +20,43 @@ const ShoppingCart = ({
   setCartIsOpen,
   cart,
   setCart,
-  cartItemRender,
   total,
+  addProductCart,
 }) => {
+  const removeCartProduct = (product) => {
+    const filteredList = cart.filter((item) => item !== product);
+    setCart(filteredList);
+  };
+
+  const removeCartItem = (product) => {
+    if (product.amount > 1) {
+      const newCart = cart.map((item) => {
+        if (item.id === product.id) {
+          return { ...item, amount: item.amount - 1 };
+        } else {
+          return item;
+        }
+      });
+      setCart(newCart);
+    }
+
+    if (product.amount < 2) {
+      removeCartProduct(product);
+    }
+  };
+
+  const cartItemRender = () =>
+    cart.map((product) => {
+      return (
+        <CartItem
+          key={product.id}
+          product={product}
+          addProductCart={addProductCart}
+          removeCartItem={removeCartItem}
+          removeCartProduct={removeCartProduct}
+        />
+      );
+    });
   return (
     <div>
       <SidebarCart cartIsOpen={cartIsOpen}>
