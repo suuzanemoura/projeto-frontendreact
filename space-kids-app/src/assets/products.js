@@ -142,7 +142,7 @@ export const products = [
     name: "LEGO Star Wars - Ônibus Espacial Do Kylo Ren",
     value: 69.9,
     imageUrl:
-      "http://www.behappybrinquedos.com.br/produtos/3360/large/1515758988_1GG.jpg",
+      "https://a-static.mlcdn.com.br/800x560/lego-star-wars-75264-microfighter-nave-espacial-do-kylo-ren/francoshop/lg75264/58f52eb41aa9ac55416b49da50aeebd4.jpg",
     imageAlt:
       "Imagem da caixa do brinquedo LEGO Star Wars - Ônibus Espacial Do Kylo Ren",
     description:
