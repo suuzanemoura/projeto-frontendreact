@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import { GlobalStyled } from "./GlobalStyle";
 import styled from "styled-components";
 
-import Header from "./components/Header";
+import Home from "./pages/Home";
+import CategoryPage from "./pages/CategoryPage";
+import ProductDetails from "./pages/ProductDetails";
+import Login from "./pages/LoginPage";
+import Register from "./pages/RegisterPage";
+import Purchased from "./pages/Purchased";
+import Contact from "./pages/ContactPage";
 import MenuMobile from "./components/MenuMobile";
-import MainPage from "./components/MainPage";
 import ProductCard from "./components/ProductCard";
 import ShoppingCart from "./components/ShoppingCart";
-import Footer from "./components/Footer";
 
 import { products } from "./assets/products.js";
-import CartItem from "./components/CartItem";
 
 const Container = styled.div`
   display: flex;
@@ -24,41 +27,22 @@ const App = () => {
   const [titleCategory, setTitleCategory] = useState("Produtos");
   const [arrayProducts, setArrayProducts] = useState(products);
   const [productDetail, setProductDetail] = useState("");
-
   const [lowestPrice, setLowestPrice] = useState(0);
   const [biggestPrice, setBiggestPrice] = useState(1000);
   const [ordination, setOrdination] = useState("");
   const [search, setSearch] = useState("");
-
   const [cartIsOpen, setCartIsOpen] = useState("-120%");
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("items")) || []
   );
   const [total, setTotal] = useState(0);
   const [itemAmount, setItemAmount] = useState(0);
-
   const [menuMobileIsOpen, setMenuMobileIsOpen] = useState("-120%");
 
   const handleScreen = (number) => setScreen(number);
   const handleTitleCategory = (title) => setTitleCategory(title);
   const handleArrayProducts = (array) => setArrayProducts(array);
   const handleSearch = (e) => setSearch(e.target.value);
-  const handleSearchByEnter = (e) => {
-    if (e.key === "Enter") {
-      setSearch(e.target.value);
-      handleTitleCategory("Resultado da pesquisa");
-      handleArrayProducts(
-        products.filter((product) => {
-          return product.name.toLowerCase().includes(search.toLowerCase());
-        })
-      );
-      handleScreen(2);
-      setSearch("");
-      setLowestPrice(0);
-      setBiggestPrice(1000);
-      setOrdination("");
-    }
-  };
 
   useEffect(() => {
     const totalAmount = cart.reduce((accumulator, currentItem) => {
@@ -80,6 +64,31 @@ const App = () => {
     localStorage.setItem("items", JSON.stringify(cart));
   }, [cart]);
 
+  const addProductToDetails = (product) => {
+    setProductDetail(product);
+  };
+
+  const addProductCart = (product, id) => {
+    const newItem = { ...product, amount: 1 };
+
+    const cartItem = cart.find((item) => {
+      return item.id === id;
+    });
+
+    if (cartItem) {
+      const newCart = [...cart].map((item) => {
+        if (item.id === id) {
+          return { ...item, amount: cartItem.amount + 1 };
+        } else {
+          return item;
+        }
+      });
+      setCart(newCart);
+    } else {
+      setCart([...cart, newItem]);
+    }
+  };
+
   const newArrayProducts = [
     ...arrayProducts.filter((product) => {
       return product.value <= biggestPrice && product.value >= lowestPrice;
@@ -97,10 +106,6 @@ const App = () => {
   const toysCategory = products.filter((product) => {
     return product.category === "Brinquedos";
   });
-
-  const addProductToDetails = (product) => {
-    setProductDetail(product);
-  };
 
   const productsRender = () =>
     newArrayProducts
@@ -131,92 +136,198 @@ const App = () => {
         );
       });
 
-  const addProductCart = (product, id) => {
-    const newItem = { ...product, amount: 1 };
-
-    const cartItem = cart.find((item) => {
-      return item.id === id;
-    });
-
-    if (cartItem) {
-      const newCart = [...cart].map((item) => {
-        if (item.id === id) {
-          return { ...item, amount: cartItem.amount + 1 };
-        } else {
-          return item;
-        }
+  const showScreen = () => {
+    if (
+      screen === 2 ||
+      screen === 3 ||
+      screen === 4 ||
+      screen === 5 ||
+      screen === 6 ||
+      screen === 7
+    ) {
+      window.scrollTo({
+        top: 0,
       });
-      setCart(newCart);
-    } else {
-      setCart([...cart, newItem]);
-    }
-  };
-
-  const removeCartProduct = (product) => {
-    const filteredList = cart.filter((item) => item !== product);
-    setCart(filteredList);
-  };
-
-  const removeCartItem = (product) => {
-    if (product.amount > 1) {
-      const newCart = cart.map((item) => {
-        if (item.id === product.id) {
-          return { ...item, amount: item.amount - 1 };
-        } else {
-          return item;
-        }
-      });
-      setCart(newCart);
     }
 
-    if (product.amount < 2) {
-      removeCartProduct(product);
+    switch (screen) {
+      case 1:
+        return (
+          <Home
+            products={products}
+            handleArrayProducts={handleArrayProducts}
+            productsRender={productsRender}
+            handleScreen={handleScreen}
+            titleCategory={titleCategory}
+            handleTitleCategory={handleTitleCategory}
+            accessoriesCategory={accessoriesCategory}
+            cushionsCategory={cushionsCategory}
+            toysCategory={toysCategory}
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
+            lowestPrice={lowestPrice}
+            setLowestPrice={setLowestPrice}
+            biggestPrice={biggestPrice}
+            setBiggestPrice={setBiggestPrice}
+            ordination={ordination}
+            setOrdination={setOrdination}
+            newArrayProducts={newArrayProducts}
+            setCartIsOpen={setCartIsOpen}
+            itemAmount={itemAmount}
+            setMenuMobileIsOpen={setMenuMobileIsOpen}
+          />
+        );
+      case 2:
+        return (
+          <CategoryPage
+            products={products}
+            handleArrayProducts={handleArrayProducts}
+            productsRender={productsRender}
+            handleScreen={handleScreen}
+            titleCategory={titleCategory}
+            handleTitleCategory={handleTitleCategory}
+            accessoriesCategory={accessoriesCategory}
+            cushionsCategory={cushionsCategory}
+            toysCategory={toysCategory}
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
+            lowestPrice={lowestPrice}
+            setLowestPrice={setLowestPrice}
+            biggestPrice={biggestPrice}
+            setBiggestPrice={setBiggestPrice}
+            ordination={ordination}
+            setOrdination={setOrdination}
+            newArrayProducts={newArrayProducts}
+            setCartIsOpen={setCartIsOpen}
+            itemAmount={itemAmount}
+            setMenuMobileIsOpen={setMenuMobileIsOpen}
+          />
+        );
+      case 3:
+        return (
+          <Contact
+            products={products}
+            handleArrayProducts={handleArrayProducts}
+            handleScreen={handleScreen}
+            handleTitleCategory={handleTitleCategory}
+            accessoriesCategory={accessoriesCategory}
+            cushionsCategory={cushionsCategory}
+            toysCategory={toysCategory}
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
+            setLowestPrice={setLowestPrice}
+            setBiggestPrice={setBiggestPrice}
+            setOrdination={setOrdination}
+            setCartIsOpen={setCartIsOpen}
+            itemAmount={itemAmount}
+            setMenuMobileIsOpen={setMenuMobileIsOpen}
+          />
+        );
+      case 4:
+        return (
+          <Login
+            products={products}
+            handleArrayProducts={handleArrayProducts}
+            handleScreen={handleScreen}
+            handleTitleCategory={handleTitleCategory}
+            accessoriesCategory={accessoriesCategory}
+            cushionsCategory={cushionsCategory}
+            toysCategory={toysCategory}
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
+            setLowestPrice={setLowestPrice}
+            setBiggestPrice={setBiggestPrice}
+            setOrdination={setOrdination}
+            setCartIsOpen={setCartIsOpen}
+            itemAmount={itemAmount}
+            setMenuMobileIsOpen={setMenuMobileIsOpen}
+          />
+        );
+      case 5:
+        return (
+          <Register
+            products={products}
+            handleArrayProducts={handleArrayProducts}
+            handleScreen={handleScreen}
+            handleTitleCategory={handleTitleCategory}
+            accessoriesCategory={accessoriesCategory}
+            cushionsCategory={cushionsCategory}
+            toysCategory={toysCategory}
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
+            setLowestPrice={setLowestPrice}
+            setBiggestPrice={setBiggestPrice}
+            setOrdination={setOrdination}
+            setCartIsOpen={setCartIsOpen}
+            itemAmount={itemAmount}
+            setMenuMobileIsOpen={setMenuMobileIsOpen}
+          />
+        );
+      case 6:
+        return (
+          <ProductDetails
+            products={products}
+            handleArrayProducts={handleArrayProducts}
+            handleScreen={handleScreen}
+            handleTitleCategory={handleTitleCategory}
+            accessoriesCategory={accessoriesCategory}
+            cushionsCategory={cushionsCategory}
+            toysCategory={toysCategory}
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
+            setLowestPrice={setLowestPrice}
+            setBiggestPrice={setBiggestPrice}
+            setOrdination={setOrdination}
+            setCartIsOpen={setCartIsOpen}
+            itemAmount={itemAmount}
+            setMenuMobileIsOpen={setMenuMobileIsOpen}
+            addProductCart={addProductCart}
+            productDetail={productDetail}
+          />
+        );
+      case 7:
+        return (
+          <Purchased
+            products={products}
+            handleArrayProducts={handleArrayProducts}
+            handleScreen={handleScreen}
+            handleTitleCategory={handleTitleCategory}
+            accessoriesCategory={accessoriesCategory}
+            cushionsCategory={cushionsCategory}
+            toysCategory={toysCategory}
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
+            setLowestPrice={setLowestPrice}
+            setBiggestPrice={setBiggestPrice}
+            setOrdination={setOrdination}
+            setCartIsOpen={setCartIsOpen}
+            itemAmount={itemAmount}
+            setMenuMobileIsOpen={setMenuMobileIsOpen}
+          />
+        );
+      default:
+        return "Página não encontrada!";
     }
   };
-
-  const cartItemRender = () =>
-    cart.map((product) => {
-      return (
-        <CartItem
-          key={product.id}
-          product={product}
-          addProductCart={addProductCart}
-          removeCartItem={removeCartItem}
-          removeCartProduct={removeCartProduct}
-        />
-      );
-    });
 
   return (
     <Container>
       <GlobalStyled />
-      <Header
-        products={products}
-        handleArrayProducts={handleArrayProducts}
-        handleScreen={handleScreen}
-        handleTitleCategory={handleTitleCategory}
-        accessoriesCategory={accessoriesCategory}
-        cushionsCategory={cushionsCategory}
-        toysCategory={toysCategory}
-        search={search}
-        setSearch={setSearch}
-        handleSearch={handleSearch}
-        handleSearchByEnter={handleSearchByEnter}
-        setLowestPrice={setLowestPrice}
-        setBiggestPrice={setBiggestPrice}
-        setOrdination={setOrdination}
-        setCartIsOpen={setCartIsOpen}
-        itemAmount={itemAmount}
-        setMenuMobileIsOpen={setMenuMobileIsOpen}
-      />
       <ShoppingCart
         handleScreen={handleScreen}
         cartIsOpen={cartIsOpen}
         setCartIsOpen={setCartIsOpen}
         cart={cart}
         setCart={setCart}
-        cartItemRender={cartItemRender}
         total={total}
+        addProductCart={addProductCart}
       />
       <MenuMobile
         products={products}
@@ -232,33 +343,7 @@ const App = () => {
         menuMobileIsOpen={menuMobileIsOpen}
         setMenuMobileIsOpen={setMenuMobileIsOpen}
       />
-      <MainPage
-        screen={screen}
-        handleScreen={handleScreen}
-        productsRender={productsRender}
-        titleCategory={titleCategory}
-        lowestPrice={lowestPrice}
-        setLowestPrice={setLowestPrice}
-        biggestPrice={biggestPrice}
-        setBiggestPrice={setBiggestPrice}
-        ordination={ordination}
-        setOrdination={setOrdination}
-        newArrayProducts={newArrayProducts}
-        addProductCart={addProductCart}
-        setCartIsOpen={setCartIsOpen}
-        productDetail={productDetail}
-      />
-      <Footer
-        handleArrayProducts={handleArrayProducts}
-        handleScreen={handleScreen}
-        handleTitleCategory={handleTitleCategory}
-        accessoriesCategory={accessoriesCategory}
-        cushionsCategory={cushionsCategory}
-        toysCategory={toysCategory}
-        setLowestPrice={setLowestPrice}
-        setBiggestPrice={setBiggestPrice}
-        setOrdination={setOrdination}
-      />
+      {showScreen()}
     </Container>
   );
 };

@@ -3,12 +3,16 @@ import { AiFillCheckCircle } from "react-icons/ai";
 
 export const Container = styled.div`
   width: 100%;
+`;
+
+export const Main = styled.main`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-export const LilacBox = styled.div`
+export const LilacBox = styled.section`
   width: 35rem;
   display: flex;
   justify-content: center;

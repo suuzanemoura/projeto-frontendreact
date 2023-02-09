@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const ContactContainer = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   scroll-behavior: auto;
 `;
 
-export const ContactContainer = styled.section`
+export const Main = styled.main`
   width: 30rem;
   margin: 4rem;
 
@@ -41,7 +42,7 @@ export const ContactContainer = styled.section`
 export const FormContact = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
   position: relative;
 
   p {

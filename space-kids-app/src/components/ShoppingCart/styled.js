@@ -87,6 +87,7 @@ export const EmptyCart = styled.div`
     @media screen and (max-width: 420px) {
       width: 90%;
       font-size: 0.75rem;
+      padding: 0;
     }
   }
 `;
