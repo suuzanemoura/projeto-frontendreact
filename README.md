@@ -15,7 +15,7 @@ Esse é o projeto de introdução aos fundamentos do React. O objetivo é montar
 - Styled Components
 - localStorage
 
-### O usuário é capaz de:
+### O usuário é capaz de: 
 
 - Visualizar a lista de produtos com imagem, nome, valor e botão para adicionar ao carrinho;
 - Filtrar produtos por valores mínimo e máximo, por preço decrescente, por preço crescente, por nome de A-Z e por nome de A-Z.
@@ -29,19 +29,13 @@ Esse é o projeto de introdução aos fundamentos do React. O objetivo é montar
 - Responsivo para Web, Tablet e Mobile
 
 ## Livrarias Utilizadas
-
-### Todo Sistema
-
 - npm install: para instalação
 - npm run start: para execução
-
-### Front-End
-
 - npm install styled-components
 - npm install react-icons
 - npm install react-slideshow-image
 
-## Contato
+## Contato 
 
 E-mail: suuzanemoura@gmail.com
 
