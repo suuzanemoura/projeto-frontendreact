@@ -28,12 +28,12 @@ Esse é o projeto de introdução aos fundamentos do React. O objetivo é montar
 - Página para entrar em contato, de login e de registro. Os inputs estão apenas com validação de type, sem regex.
 - Responsivo para Web, Tablet e Mobile
 
-## Livrarias Utilizadas
-- npm install: para instalação
-- npm run start: para execução
+## Bibliotecas Utilizadas
+- npm install
 - npm install styled-components
 - npm install react-icons
 - npm install react-slideshow-image
+- npm run start: para execução
 
 ## Contato 
 
