@@ -43,4 +43,5 @@ Esse é o projeto de introdução aos fundamentos do React. O objetivo é montar
 
 ## Contato 
 E-mail: suuzanemoura@gmail.com
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/suuzanemoura/)
