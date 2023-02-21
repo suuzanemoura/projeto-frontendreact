@@ -19,7 +19,7 @@ Esse é o projeto de introdução aos fundamentos do React. O objetivo é montar
 
 - Visualizar a lista de produtos com imagem, nome, valor e botão para adicionar ao carrinho;
 - Filtrar produtos por valores mínimo e máximo, por preço decrescente, por preço crescente, por nome de A-Z e por nome de A-Z.
-- Realizar busca por nome no input clicando na lupa ou peça tecla "Enter".
+- Realizar busca por nome no input clicando na lupa ou pela tecla "Enter".
 - Página de cada produto com descrição;
 - Adicionar produtos ao carrinho e remover um item do produto ou o produto independente da quantidade acumulada;
 - Visualizar os produtos adicionados no carrinho, com subtotal por produto e total da compra;
