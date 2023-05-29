@@ -38,15 +38,20 @@ react-slideshow-image
 
 ### Funcionalidades:
 
-- Listagem: Lista de produtos com imagem, nome, valor e botão para adicionar ao carrinho;
-- Filtros: Filtrar produtos por valores mínimo e máximo, por preço decrescente, por preço crescente, por nome de A-Z e por nome de A-Z.
-- Busca: Realizar busca por nome no input clicando na lupa ou pela tecla "Enter".
-- Detalhes: Página de cada produto com descrição;
-- Carrinho: Adicionar produtos ao carrinho e remover um item do produto ou o produto independente da quantidade acumulada; Visualizar os produtos adicionados no carrinho, com subtotal por produto e total da compra;
-- Pedido: Finalizar a compra com tela simples de pedido realizado;
-- Categorias: Páginas contendo a lista de produtos por categoria;
-- Páginas: Página para entrar em contato, de login e de registro. Os inputs estão apenas com validação de type, sem regex.
-- Responsividade: Responsivo para Web, Tablet e Mobile.
+- Visualizar lista de produtos com imagem, nome, valor e botão para adicionar ao carrinho;
+- Filtrar produtos por valores mínimo e máximo, por preço decrescente, por preço crescente, por nome de A-Z e por nome de A-Z.
+- Realizar busca por nome no input clicando na lupa ou pela tecla "Enter".
+- Visualizar página de cada produto com descrição;
+- Adicionar produtos ao carrinho e remover um item do produto ou o produto independente da quantidade acumulada;
+- Visualizar os produtos adicionados no carrinho, com subtotal por produto e total da compra;
+- Finalizar a compra com tela simples de pedido realizado;
+- Visualizar páginas contendo a lista de produtos por categoria;
+- Visualizar página para entrar em contato, de login e de registro. Os inputs estão apenas com validação de type, sem regex.
+- Responsivo para Web, Tablet e Mobile.
+
+### Status do projeto
+
+- Concluído ⏳
 
 ## Contato
 
