@@ -18,8 +18,8 @@ Para executar o projeto localmente, siga os passos abaixo:
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/SEU_USUARIO/space-kids.git
-cd space-kids
+git clone https://github.com/suuzanemoura/projeto-frontendreact.git
+cd projeto-frontendreact
 
 # Instalar dependências
 npm install
